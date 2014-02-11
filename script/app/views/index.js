@@ -27,6 +27,7 @@ define([
 
       var data = _.map(that.collection.models, function(model) {
         return {
+          no: model.attributes.nationalPokedexNumber,
           name: model.attributes.name,
           cid: model.cid
         };
@@ -39,7 +40,7 @@ define([
       return that;
     },
     events: {
-      'touchend a': 'showDetail'
+      'click a': 'showDetail'
     },
     showDetail: function(e) {
       e.preventDefault();

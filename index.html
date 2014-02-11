@@ -23,7 +23,7 @@
 <script id="js-tmpl-index" type="text/x-handlebars-tmpl">
 <ul>
   {{#each this}}
-  <li><a data-href="#detail/{{this.cid}}" class="{{this._key}}">{{this.name}}</a></li>
+  <li><a data-href="#detail/{{this.cid}}" class="icon-{{this.cid}}">[{{this.no}}] {{this.name}}({{this.cid}})</a></li>
   {{/each}}
 </ul>
 </script>

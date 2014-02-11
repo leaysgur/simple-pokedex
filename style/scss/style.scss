@@ -1,5 +1,6 @@
 @import "compass";
 @import "_normalize.scss";
+@import "_icon.scss";
 
 /*+
  * Settings
@@ -56,18 +57,19 @@ $color5: #0094c8; // アクセントの青
       a {
         position: relative;
         display: block;
-        padding-left: sitePx(5);
-        @include vJustify(sitePx(5));
+        padding-left: sitePx(7);
+        @include vJustify(sitePx(7));
         
         &::before {
           position: absolute;
           content: "";
-          width: sitePx(2);
-          height: sitePx(2);
+          width: sitePx(5);
+          height: sitePx(5);
           top: 50%;
-          margin-top: -#{sitePx(1)};
+          margin-top: -#{sitePx(5 / 2)};
           left: sitePx(1);
-          background-color: $color4;
+          background-image: url(/img/poke-sprites.png);
+          background-repeat: no-repeat;
         }
       }
       
