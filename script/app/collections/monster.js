@@ -36,6 +36,7 @@ define([
         var baseData = base[0], typeData = type[0], langData = lang[0];
         var fixedData = overrideBaseData(baseData, typeData, langData);
 
+        that.comparator = 'cid';
         that.reset(fixedData);
         d.resolve();
 
