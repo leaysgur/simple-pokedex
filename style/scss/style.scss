@@ -1,40 +1,90 @@
 @import "compass";
 @import "_normalize.scss";
 
-body { }
+/*+
+ * Settings
+ ****************************************************/
+$color1: #165e83; // メインの紺
+$color2: #fff;    // ベースの白
+$color3: #eee;    // ベース補助の薄いグレー
+$color4: #354753; // 裏メインの濃いグレー
+$color5: #0094c8; // アクセントの青
 
-.main-container {
-  background-color: #eee;
-  text-align: center;
+@function sitePx($lv: 1) {
+  $basePx: 8;
+  @return #{8 * $lv}px;
 }
 
+@mixin vJustify($height, $l-height: false) {
+  height: $height;
+  @if ($l-height) {
+    line-height: $l-height;
+  } @else {
+    line-height: $height;
+  }
+}
+
+/*+
+ * Modules
+ ****************************************************/
+.anchor-txt {
+  color: $color2;
+  @include transition(color .5s ease);
+
+  &:hover {
+    color: $color5;
+  }
+}
+
+/*+
+ * Stylings
+ ****************************************************/
 .view-header {
-  background-color: rgba(0, 0, 0, .5);
-  color: #fff;
+  background-color: $color1;
+  color: $color2;
+  text-align: center;
+  @include vJustify(sitePx(4));
 }
 
-.view-content {
-  background-color: rgba(255, 255, 255, .5);
-  
+.view-index {
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
 
     li {
-      &:nth-child(even) {
-        background-color: rgba(255, 255, 255, .75);
-      }
-
       a {
+        position: relative;
         display: block;
-        height: 40px;
-        line-height: 40px;
+        padding-left: sitePx(5);
+        @include vJustify(sitePx(5));
+        
+        &::before {
+          position: absolute;
+          content: "";
+          width: sitePx(2);
+          height: sitePx(2);
+          top: 50%;
+          margin-top: -#{sitePx(1)};
+          left: sitePx(1);
+          background-color: $color4;
+        }
       }
       
+      & + li {
+        border-top: 1px solid $color3;
+      }
     }
   }
-
 }
 
-.view-footer {}
+.view-detail {}
+
+.view-footer {
+  background-color: $color4;
+  color: $color2;
+  text-align: center;
+  @include vJustify(sitePx(4));
+  font-size: .8rem;
+}
+
