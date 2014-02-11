@@ -25,6 +25,35 @@ $color5: #0094c8; // アクセントの青
   }
 }
 
+%monster-icon {
+  position: absolute;
+  content: "";
+  width: sitePx(5);
+  height: sitePx(5);
+  background-image: url(/img/poke-sprites.png);
+  background-repeat: no-repeat;
+}
+
+%content-base {
+  border-bottom: 1px solid $color3;
+  padding: sitePx(1);
+}
+
+/*+
+ * Reset
+ ****************************************************/
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 /*+
  * Modules
  ****************************************************/
@@ -37,9 +66,29 @@ $color5: #0094c8; // アクセントの青
   }
 }
 
+.anchor-btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin: sitePx(1);
+  color: $color2;
+  background-color: $color5;
+  @include vJustify(sitePx(5));
+  @include border-radius(sitePx(1 / 4));
+}
+
+.box {
+  @include display-box;
+}
+
+.flex {
+  @include box-flex(1);
+}
 /*+
  * Stylings
  ****************************************************/
+
+// Common
 .view-header {
   background-color: $color1;
   color: $color2;
@@ -47,13 +96,19 @@ $color5: #0094c8; // アクセントの青
   @include vJustify(sitePx(4));
 }
 
-.view-index {
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.view-footer {
+  background-color: $color4;
+  color: $color2;
+  text-align: center;
+  @include vJustify(sitePx(4));
+  font-size: .8rem;
+}
 
-    li {
+
+// Index
+.view-index {
+  .monster-list {
+    > li {
       a {
         position: relative;
         display: block;
@@ -61,15 +116,10 @@ $color5: #0094c8; // アクセントの青
         @include vJustify(sitePx(7));
         
         &::before {
-          position: absolute;
-          content: "";
-          width: sitePx(5);
-          height: sitePx(5);
+          @extend %monster-icon;
           top: 50%;
           margin-top: -#{sitePx(5 / 2)};
           left: sitePx(1);
-          background-image: url(/img/poke-sprites.png);
-          background-repeat: no-repeat;
         }
       }
       
@@ -80,13 +130,28 @@ $color5: #0094c8; // アクセントの青
   }
 }
 
-.view-detail {}
 
-.view-footer {
-  background-color: $color4;
-  color: $color2;
-  text-align: center;
-  @include vJustify(sitePx(4));
-  font-size: .8rem;
+// Index
+.view-detail {
+  > div {
+    @extend %content-base;
+  }
+
+  .monster-index-wrap {
+    .monster-icon {
+      width: sitePx(5);
+      height: sitePx(5);
+      margin-right: sitePx(1);
+
+      &::before {
+        @extend %monster-icon;
+      }
+
+    }
+    .monster-index {
+      @include vJustify(sitePx(5 / 2));
+    }
+  }
+
 }
 

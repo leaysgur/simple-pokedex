@@ -44,12 +44,15 @@ define('conf', ['jquery'], function ($) {
         abilities: {
           normal: '特性',
           hidden: '夢特性'
-        }
+        },
+        height: '高さ',
+        weight: '重さ',
+        nationalPokedex: 'ぜんこく図鑑',
+        misc: 'その他'
       },
       titles: {
-        site: 'ポケモン図鑑',
-        index: '',
-        detail: '%sについて | '
+        index: 'ポケモン図鑑',
+        detail: '%sの詳細'
       }
     },
     en: {
@@ -83,12 +86,15 @@ define('conf', ['jquery'], function ($) {
         abilities: {
           normal: 'Normal Ability',
           hidden: 'Hidden Ability'
-        }
+        },
+        height: 'Height',
+        weight: 'Weight',
+        nationalPokedex: 'National Pokédex',
+        misc: 'Misc'
       },
       titles: {
-        site: 'Pokédex',
-        index: '',
-        detail: 'About %s | '
+        index: 'Pokédex',
+        detail: 'About %s'
       }
     }
   };

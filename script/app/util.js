@@ -8,11 +8,11 @@ define('util', ['conf'], function (conf) {
     l: console.log.bind(console),
     title: (function() {
       var $header = $('#js-view-header');
-      return function(base) {
+      return function(title) {
         var rep = Array.prototype.slice.call(arguments, 1);
-        base = this.printf(base, rep);
-        document.title = base + conf.titles.site;
-        $header.text(base + conf.titles.site);
+        title = this.printf(title, rep);
+        document.title = title;
+        $header.text(title);
       };
     }()),
     printf: function(l) {
@@ -23,15 +23,19 @@ define('util', ['conf'], function (conf) {
     },
     scroller: (function() {
       var scrollY = 0;
+      var $window = $('html,body');
       return {
         restore: function() {
           var t = setTimeout(function() {
-            window.scrollTo(0, scrollY);
+            $window.animate({ scrollTop: scrollY }, 250);
             clearTimeout(t);
           }, 100);
         },
         store: function(y) {
           scrollY = y || 0;
+          var t = setTimeout(function() {
+            $window.animate({ scrollTop: 0 }, 250);
+          }, 100);
         }
       };
     }())

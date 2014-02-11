@@ -8,7 +8,9 @@
 </head>
 <body>
 <div class="container">
-  <header class="view-header" id="js-view-header">Pokédex</header>
+  <header class="view-header">
+    <h1 id="js-view-header">Pokédex</h1>
+  </header>
 
   <div class="view-content">
     <div id="js-view-index" class="js-view-contents view-index"></div>
@@ -21,40 +23,23 @@
 </div>
 
 <script id="js-tmpl-index" type="text/x-handlebars-tmpl">
-<ul>
+<ul class="monster-list">
   {{#each this}}
   <li><a data-href="#detail/{{this.cid}}" class="icon-id-{{this.id}}">{{this.name}}</a></li>
   {{/each}}
 </ul>
 </script>
 <script id="js-tmpl-detail" type="text/x-handlebars-tmpl">
-<div>
-  No.{{nationalPokedexNumber}}: {{name}}
+
+<div class="monster-index-wrap box">
+  <div class="monster-icon icon-id-{{_id}}"></div>
+  <div class="monster-index flex">
+    {{words.nationalPokedex}}No.{{nationalPokedexNumber}}<br>
+    {{name}}
+  </div>
 </div>
 <div>
-  {{heightStr}} / {{weightStr}}
-</div>
-<div>
-  {{words.type}}: {{#each typesStr}}{{this}} {{/each}}
-</div>
-<div>
-  {{words.typeChart}}:<br>
-  x4: {{#each typesChartStr.efx400}}{{this}} {{/each}}<br>
-  x2: {{#each typesChartStr.efx200}}{{this}} {{/each}}<br>
-  x1/2: {{#each typesChartStr.efx50}}{{this}} {{/each}}<br>
-  x1/4: {{#each typesChartStr.efx25}}{{this}} {{/each}}<br>
-  x0: {{#each typesChartStr.efx0}}{{this}} {{/each}}
-</div>
-<div>
-  {{words.abilities.normal}}<br>
-  {{#each abilities.normal}}{{this.name}}: {{this.desc}}<br>{{/each}}
-</div>
-<div>
-  {{words.abilities.hidden}}<br>
-  {{#each abilities.hidden}}{{this.name}}: {{this.desc}}<br>{{/each}}
-</div>
-<div>
-  {{words.baseStats}}<br>
+  <h2>{{words.baseStats}}</h2>
   <ul>
     <li>H: {{baseStats.hp}}</li>
     <li>A: {{baseStats.attack}}</li>
@@ -64,7 +49,38 @@
     <li>S: {{baseStats.speed}}</li>
   </ul>
 </div>
-<a href="#" class="js-back-to-top">Back to top</a>
+<div class="">
+  <h2>{{words.type}}</h2>
+  <div class="">{{#each typesStr}}<span class="type">{{this}}</span> {{/each}}</div>
+</div>
+<div>
+  <h2>{{words.typeChart}}</h2>
+  x4: {{#each typesChartStr.efx400}}{{this}} {{/each}}<br>
+  x2: {{#each typesChartStr.efx200}}{{this}} {{/each}}<br>
+  x1/2: {{#each typesChartStr.efx50}}{{this}} {{/each}}<br>
+  x1/4: {{#each typesChartStr.efx25}}{{this}} {{/each}}<br>
+  x0: {{#each typesChartStr.efx0}}{{this}} {{/each}}
+</div>
+<div>
+  <h2>{{words.abilities.normal}}</h2>
+  {{#each abilities.normal}}
+  <h3>{{this.name}}</h3>
+  {{this.desc}}
+  {{/each}}
+</div>
+<div>
+  <h2>{{words.abilities.hidden}}</h2>
+  {{#each abilities.hidden}}
+  <h3>{{this.name}}</h3>
+  {{this.desc}}
+  {{/each}}
+</div>
+
+<div>
+  <h2>{{words.misc}}</h2>
+  {{words.height}}: {{heightStr}} / {{words.weight}}: {{weightStr}}
+</div>
+<a href="#" class="js-back-to-top anchor-btn">Back to top</a>
 </script>
 
 <script src="/script/vendor/require.js"></script>
