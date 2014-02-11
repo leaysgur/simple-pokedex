@@ -1,0 +1,28 @@
+<div>
+  No.{{nationalPokedexNumber}}: {{name}}
+</div>
+<div>
+  {{heightStr}} / {{weightStr}}
+</div>
+<div>
+  {{words.type}}: {{#each type}}{{this}} {{/each}}
+</div>
+<div>
+  {{words.abilities.normal}}<br>
+  {{#each abilities.normal}}{{this.name}}: {{this.desc}}<br>{{/each}}
+</div>
+<div>
+  {{words.abilities.hidden}}<br>
+  {{#each abilities.hidden}}{{this.name}}: {{this.desc}}<br>{{/each}}
+</div>
+<div>
+  {{words.baseStats}}<br>
+  <ul>
+    <li>H: {{baseStats.hp}}</li>
+    <li>A: {{baseStats.attack}}</li>
+    <li>B: {{baseStats.defense}}</li>
+    <li>C: {{baseStats.specialAttack}}</li>
+    <li>D: {{baseStats.specialDefense}}</li>
+    <li>S: {{baseStats.speed}}</li>
+  </ul>
+</div>

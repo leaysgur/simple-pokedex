@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<title>Pokédex</title>
+<link rel="stylesheet" href="/style/css/style.css">
+</head>
+<body>
+<div class="main-container">
+  <header class="view-header" id="js-view-header">Pokédex</header>
+  <div class="view-content">
+    <div id="js-view-index" class="js-view-contents"></div>
+    <div id="js-view-detail" class="js-view-contents"></div>
+  </div>
+  <footer class="view-footer">Footer.</footer>
+</div>
+
+<script id="js-tmpl-index" type="text/x-handlebars-tmpl">
+<ul>
+  {{#each this}}
+  <li><a data-href="#detail/{{this.cid}}" class="{{this._key}}">{{this.name}}</a></li>
+  {{/each}}
+</ul>
+</script>
+<script id="js-tmpl-detail" type="text/x-handlebars-tmpl">
+<div>
+  No.{{nationalPokedexNumber}}: {{name}}
+</div>
+<div>
+  {{heightStr}} / {{weightStr}}
+</div>
+<div>
+  {{words.type}}: {{#each typesStr}}{{this}} {{/each}}
+</div>
+<div>
+  {{words.typeChart}}:<br>
+  x4: {{#each typesChartStr.efx400}}{{this}} {{/each}}<br>
+  x2: {{#each typesChartStr.efx200}}{{this}} {{/each}}<br>
+  x1/2: {{#each typesChartStr.efx50}}{{this}} {{/each}}<br>
+  x1/4: {{#each typesChartStr.efx25}}{{this}} {{/each}}<br>
+  x0: {{#each typesChartStr.efx0}}{{this}} {{/each}}
+</div>
+<div>
+  {{words.abilities.normal}}<br>
+  {{#each abilities.normal}}{{this.name}}: {{this.desc}}<br>{{/each}}
+</div>
+<div>
+  {{words.abilities.hidden}}<br>
+  {{#each abilities.hidden}}{{this.name}}: {{this.desc}}<br>{{/each}}
+</div>
+<div>
+  {{words.baseStats}}<br>
+  <ul>
+    <li>H: {{baseStats.hp}}</li>
+    <li>A: {{baseStats.attack}}</li>
+    <li>B: {{baseStats.defense}}</li>
+    <li>C: {{baseStats.specialAttack}}</li>
+    <li>D: {{baseStats.specialDefense}}</li>
+    <li>S: {{baseStats.speed}}</li>
+  </ul>
+</div>
+<a href="#" class="js-back-to-top">Back to top</a>
+</script>
+
+<script src="/script/vendor/require.js"></script>
+<script src="/script/app/require_config.js"></script>
+<script src="/script/app/main.js"></script>
+</body>
+</html>
