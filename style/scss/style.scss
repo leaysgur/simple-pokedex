@@ -131,9 +131,9 @@ ul {
 }
 
 
-// Index
+// Detail
 .view-detail {
-  > div {
+  > section {
     @extend %content-base;
   }
   
@@ -159,12 +159,11 @@ ul {
   
   .base-stats {
     > li {
+      position: relative;
       background-color: $color3;
       margin-bottom: sitePx(1 /2);
 
       > div {
-        position: relative;
-        color: $color2;
         background-color: $color5;
         height: sitePx(3);
         @include border-radius(0 sitePx(1 / 4) sitePx(1 / 4) 0);
@@ -173,10 +172,11 @@ ul {
           position: absolute;
           content: attr(data-label);
           top: 50%;
-          left: sitePx(1);
+          right: sitePx(1);
           margin-top: -#{sitePx(3 / 2)};
           font-size: .8rem;
-          width: sitePx(20);
+          color: $color4;
+          @include text-shadow(1px 0 $color2, 0 1px $color2, -1px 0 $color2, 0 -1px $color2);
           @include vJustify(sitePx(3));
         }
       }

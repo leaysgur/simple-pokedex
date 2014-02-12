@@ -27,9 +27,10 @@ define([
       var d = $.Deferred();
 
       $.when(
-        $.getJSON(conf.jsonPath.base),
-        $.getJSON(conf.jsonPath.type),
-        $.getJSON(conf.jsonPath.lang)
+        // キャッシュOFFにしてるの忘れない
+        $.ajax({ url: conf.jsonPath.base, dataType: 'json', cache: false }),
+        $.ajax({ url: conf.jsonPath.type, dataType: 'json', cache: false }),
+        $.ajax({ url: conf.jsonPath.lang, dataType: 'json', cache: false })
       ).done(function(base, type, lang) {
         util.l('Ajax done', base, type, lang);
 

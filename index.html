@@ -31,14 +31,15 @@
 </script>
 <script id="js-tmpl-detail" type="text/x-handlebars-tmpl">
 
-<div class="monster-index-wrap box">
+<section class="monster-index-wrap box">
   <div class="monster-icon icon-id-{{_id}}"></div>
   <div class="monster-index flex">
-    {{words.nationalPokedex}}No.{{nationalPokedexNumber}}<br>
-    {{name}}
+    <h2>{{name}}</h2>
+    {{words.nationalPokedex}}No.{{nationalPokedexNumber}}
   </div>
-</div>
-<div>
+</section>
+
+<section>
   <h2>{{words.baseStats.title}}</h2>
   <ul class="base-stats">
     <li><div style="width: {{baseStatsRatio.hp}}%" data-label="{{words.baseStats.hp}}: {{baseStats.hp}}"></div></li>
@@ -49,38 +50,43 @@
     <li><div style="width: {{baseStatsRatio.speed}}%" data-label="{{words.baseStats.speed}}: {{baseStats.speed}}"></div></li>
     <li><div style="width: {{baseStatsRatio.total}}%" data-label="{{words.baseStats.total}}: {{baseStats.total}}"></div></li>
   </ul>
-</div>
-<div class="">
+</section>
+
+<section>
   <h2>{{words.type}}</h2>
   <div class="">{{#each typesStr}}<span class="type">{{this}}</span> {{/each}}</div>
-</div>
-<div>
+</section>
+
+<section>
   <h2>{{words.typeChart}}</h2>
   x4: {{#each typesChartStr.efx400}}{{this}} {{/each}}<br>
   x2: {{#each typesChartStr.efx200}}{{this}} {{/each}}<br>
   x1/2: {{#each typesChartStr.efx50}}{{this}} {{/each}}<br>
   x1/4: {{#each typesChartStr.efx25}}{{this}} {{/each}}<br>
   x0: {{#each typesChartStr.efx0}}{{this}} {{/each}}
-</div>
-<div>
+</section>
+
+<section>
   <h2>{{words.abilities.normal}}</h2>
   {{#each abilities.normal}}
   <h3>{{this.name}}</h3>
   {{this.desc}}
   {{/each}}
-</div>
-<div>
+</section>
+
+<section>
   <h2>{{words.abilities.hidden}}</h2>
   {{#each abilities.hidden}}
   <h3>{{this.name}}</h3>
   {{this.desc}}
   {{/each}}
-</div>
+</section>
 
-<div>
+<section>
   <h2>{{words.misc}}</h2>
   {{words.height}}: {{heightStr}} / {{words.weight}}: {{weightStr}}
-</div>
+</section>
+
 <a href="#" class="js-back-to-top anchor-btn">Back to top</a>
 </script>
 

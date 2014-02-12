@@ -17,5 +17,7 @@ require.config({
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
     }
-  }
+  },
+  // キャッシュOFF
+  urlArgs: "bust=" +  (new Date()).getTime()
 });
