@@ -21,10 +21,13 @@ define([
       var isJP = (conf.lang === 'ja');
 
       var types = this.get('type');
-      var typesStr = _.map(types, function(type) {
-        return conf.words.types[type]
+      types = _.map(types, function(type) {
+        return {
+          typeStr: conf.words.types[type],
+          type: type
+        };
       });
-      this.set('typesStr', typesStr);
+      this.set('types', types);
 
       var baseStats = this.get('baseStats');
       var total = _.reduce(_.values(baseStats), function(memo, num){ return memo + num; }, 0);
@@ -110,13 +113,15 @@ define([
     efx200Unq = _.difference(efx200Unq, efx50All, efx25Unq);
     // その逆も然り
     var efx50Unq = _.difference(efx50All, efx25Unq, efx200All, efx0All);
+    // ゴミをとる
+    var efx0Unq = _.compact(efx0All);
 
     return {
       efx400: efx400Unq,
       efx200: efx200Unq,
       efx50 :  efx50Unq,
       efx25 :  efx25Unq,
-      efx0  :   efx0All
+      efx0  :   efx0Unq
     }
   }
   /**

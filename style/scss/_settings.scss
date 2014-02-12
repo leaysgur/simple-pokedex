@@ -1,0 +1,33 @@
+$color1: #165e83; // メインの紺
+$color2: #fff;    // ベースの白
+$color3: #eee;    // ベース補助の薄いグレー
+$color4: #354753; // 裏メインの濃いグレー
+$color5: #0094c8; // アクセントの青
+
+@function sitePx($lv: 1) {
+  $basePx: 8;
+  @return #{8 * $lv}px;
+}
+
+@mixin vJustify($height, $l-height: false) {
+  height: $height;
+  @if ($l-height) {
+    line-height: $l-height;
+  } @else {
+    line-height: $height;
+  }
+}
+
+%monster-icon {
+  position: absolute;
+  content: "";
+  width: sitePx(5);
+  height: sitePx(5);
+  background-image: url(/img/poke-sprites.png);
+  background-repeat: no-repeat;
+}
+
+%content-base {
+  border-bottom: 1px solid $color3;
+  padding: sitePx(1);
+}

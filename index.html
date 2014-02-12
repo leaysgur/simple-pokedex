@@ -54,33 +54,73 @@
 
 <section>
   <h2>{{words.type}}</h2>
-  <div class="">{{#each typesStr}}<span class="type">{{this}}</span> {{/each}}</div>
+  {{#each types}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
 </section>
 
 <section>
   <h2>{{words.typeChart}}</h2>
-  x4: {{#each typesChartStr.efx400}}{{this}} {{/each}}<br>
-  x2: {{#each typesChartStr.efx200}}{{this}} {{/each}}<br>
-  x1/2: {{#each typesChartStr.efx50}}{{this}} {{/each}}<br>
-  x1/4: {{#each typesChartStr.efx25}}{{this}} {{/each}}<br>
-  x0: {{#each typesChartStr.efx0}}{{this}} {{/each}}
+  <ul class="type-charts">
+    {{#if typesChartStr.efx400}}
+    <li class="box">
+      <div class="label">x 4</div>
+      <div class="flex">
+        {{#each typesChartStr.efx400}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+      </div>
+    </li>
+    {{/if}}
+    {{#if typesChartStr.efx200}}
+    <li class="box">
+      <div class="label">x 2</div>
+      <div class="flex">
+        {{#each typesChartStr.efx200}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+      </div>
+    </li>
+    {{/if}}
+    {{#if typesChartStr.efx50}}
+    <li class="box">
+      <div class="label small">x 1/2</div>
+      <div class="flex">
+        {{#each typesChartStr.efx50}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+      </div>
+    </li>
+    {{/if}}
+    {{#if typesChartStr.efx25}}
+    <li class="box">
+      <div class="label small">x 1/4</div>
+      <div class="flex">
+        {{#each typesChartStr.efx25}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+      </div>
+    </li>
+    {{/if}}
+    {{#if typesChartStr.efx0}}
+    <li class="box">
+      <div class="label">x 0</div>
+      <div class="flex">
+        {{#each typesChartStr.efx0}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+      </div>
+    </li>
+    {{/if}}
+  </ul>
 </section>
 
-<section>
+<section class="abilities">
   <h2>{{words.abilities.normal}}</h2>
   {{#each abilities.normal}}
   <h3>{{this.name}}</h3>
-  {{this.desc}}
+  <div class="desc">{{this.desc}}</div>
   {{/each}}
 </section>
 
-<section>
+{{#if abilities.hidden}}
+<section class="abilities">
   <h2>{{words.abilities.hidden}}</h2>
   {{#each abilities.hidden}}
   <h3>{{this.name}}</h3>
-  {{this.desc}}
+  <div class="desc">{{this.desc}}</div>
   {{/each}}
 </section>
+{{/if}}
+
 
 <section>
   <h2>{{words.misc}}</h2>

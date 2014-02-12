@@ -34,7 +34,10 @@ define([
       data.typesChartStr = this.model.getDefTypeChartStr();
       for(var efx in data.typesChartStr) {
         data.typesChartStr[efx] = _.map(data.typesChartStr[efx], function(type) {
-          return conf.words.types[type];
+          return {
+            typeStr: conf.words.types[type],
+            type: type
+          };
         });
       }
 
