@@ -39,14 +39,15 @@
   </div>
 </div>
 <div>
-  <h2>{{words.baseStats}}</h2>
-  <ul>
-    <li>H: {{baseStats.hp}}</li>
-    <li>A: {{baseStats.attack}}</li>
-    <li>B: {{baseStats.defense}}</li>
-    <li>C: {{baseStats.specialAttack}}</li>
-    <li>D: {{baseStats.specialDefense}}</li>
-    <li>S: {{baseStats.speed}}</li>
+  <h2>{{words.baseStats.title}}</h2>
+  <ul class="base-stats">
+    <li><div style="width: {{baseStatsRatio.hp}}%" data-label="{{words.baseStats.hp}}: {{baseStats.hp}}"></div></li>
+    <li><div style="width: {{baseStatsRatio.attack}}%" data-label="{{words.baseStats.attack}}: {{baseStats.attack}}"></div></li>
+    <li><div style="width: {{baseStatsRatio.defense}}%" data-label="{{words.baseStats.defense}}: {{baseStats.defense}}"></div></li>
+    <li><div style="width: {{baseStatsRatio.specialAttack}}%" data-label="{{words.baseStats.specialAttack}}: {{baseStats.specialAttack}}"></div></li>
+    <li><div style="width: {{baseStatsRatio.specialDefense}}%" data-label="{{words.baseStats.specialDefense}}: {{baseStats.specialDefense}}"></div></li>
+    <li><div style="width: {{baseStatsRatio.speed}}%" data-label="{{words.baseStats.speed}}: {{baseStats.speed}}"></div></li>
+    <li><div style="width: {{baseStatsRatio.total}}%" data-label="{{words.baseStats.total}}: {{baseStats.total}}"></div></li>
   </ul>
 </div>
 <div class="">

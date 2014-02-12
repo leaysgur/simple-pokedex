@@ -40,7 +40,16 @@ define('conf', ['jquery'], function ($) {
           steel: 'はがね',
           fairy: 'フェアリー'
         },
-        baseStats: '種族値',
+        baseStats: {
+          title: '種族値',
+          hp: 'HP',
+          attack: 'こうげき',
+          defense: 'ぼうぎょ',
+          specialAttack: 'とくこう',
+          specialDefense: 'とくぼう',
+          speed: 'すばやさ',
+          total: '合計'
+        },
         abilities: {
           normal: '特性',
           hidden: '夢特性'
@@ -82,7 +91,16 @@ define('conf', ['jquery'], function ($) {
           steel: 'Steel',
           fairy: 'Fairy'
         },
-        baseStats: 'Base Stats',
+        baseStats: {
+          title: 'Base Stats',
+          hp: 'Hp',
+          attack: 'Attack',
+          defense: 'Defense',
+          specialAttack: 'Special Attack',
+          specialDefense: 'Special Defense',
+          speed: 'Speed',
+          total: 'Total'
+        },
         abilities: {
           normal: 'Normal Ability',
           hidden: 'Hidden Ability'

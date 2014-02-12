@@ -29,20 +29,23 @@ define([
       this.model = this.collection.get(this.cid);
 
       var data = $.extend(this.model.attributes, { words: conf.words });
-      data.typesChartStr = this.model.getDefTypeChartStr();
 
+      // タイプ相性
+      data.typesChartStr = this.model.getDefTypeChartStr();
       for(var efx in data.typesChartStr) {
         data.typesChartStr[efx] = _.map(data.typesChartStr[efx], function(type) {
           return conf.words.types[type];
         });
       }
 
+      // 種族値のグラフを出す
+      data.baseStatsRatio = this.model.getBaseStatsRatio();
+
+
       this.$el.html(this.template(data));
       util.title(conf.titles.detail, data.name);
 
       return this;
-    },
-    events: {
     }
   });
 

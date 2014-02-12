@@ -26,6 +26,11 @@ define([
       });
       this.set('typesStr', typesStr);
 
+      var baseStats = this.get('baseStats');
+      var total = _.reduce(_.values(baseStats), function(memo, num){ return memo + num; }, 0);
+      baseStats['total'] = total;
+      this.set('baseStats', baseStats);
+
       if (isJP) {
         this.set('weightStr', lbs2Kg(this.get('weight'))+'kg');
         this.set('heightStr', ft2M(this.get('height'))+'m');
@@ -40,7 +45,16 @@ define([
 
       var defTypeCharts = _.pluck(that.get('typeChart'), 'defense');
       return getDefTypesChart(defTypeCharts);
+    },
+    getBaseStatsRatio: function() {
+      var that = this;
+      var baseStatsRatio = {};
+      var baseStats = that.get('baseStats');
+      for (var stat in baseStats) {
+        baseStatsRatio[stat] = getBaseStatsRatio(baseStats[stat], stat === 'total');
+      }
       
+      return baseStatsRatio;
     }
   });
 
@@ -49,15 +63,29 @@ define([
 
 
   // Privates
+  /**
+   * lbs -> kg
+   * @param {Number} lbs
+   * @return {Number} 小数点第一位までのキログラム
+   */
   function lbs2Kg(lbs) {
-    return  ((+lbs) * 0.4536).toFixed(1);
+    return ((+lbs) * 0.4536).toFixed(1);
   }
+  /**
+   * ft -> m
+   * @param {String} ft ft(なんか変な文字ついてる)
+   * @return {Number} 小数点第一位までのメートル
+   */
   function ft2M(ft) {
     var splt = ft.split('′'),
         strFt = (splt[0]|0) + '.' + (splt[1].split('″')[0]);
-    return  ((+strFt) * 0.3048).toFixed(1);
+    return ((+strFt) * 0.3048).toFixed(1);
   }
-
+  /**
+   * タイプ相性を割り出す(タイプが2つまでってことに依存してる)
+   * @param {Array} defTypeCharts 自分のタイプそれぞれが、どういうタイプと相性なのかが入ったObjectの配列
+   * @return {Object} 無効から4倍弱点まで精緻なタイプ相性が入ったObject
+   */
   function getDefTypesChart(defTypeCharts) {
     var efx200 = _.pluck(defTypeCharts, '200');
     var efx200All = _.union(efx200[0], efx200[1]);
@@ -90,6 +118,19 @@ define([
       efx25 :  efx25Unq,
       efx0  :   efx0All
     }
+  }
+  /**
+   * 種族値の棒グラフのために、200を最大として割合を計算する
+   * @param {Number} stat 種族値
+   * @param {Boolean} isTotal 6つの種族値の合計の計算かどうか
+   * @return {Number} 小数点第一位までの割合
+   */
+  function getBaseStatsRatio(stat, isTotal) {
+    // 現在の最高はC194とかいうバケモノなので200、合計も780というそのバケモノ
+    var MAX_STAT = 200, MAX_ALL_STAT = 780;
+
+    var maxStat = (isTotal) ? MAX_ALL_STAT : MAX_STAT;
+    return ((stat / maxStat) * 100).toFixed(1);
   }
 
 });

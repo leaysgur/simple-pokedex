@@ -136,6 +136,10 @@ ul {
   > div {
     @extend %content-base;
   }
+  
+  h2, h3, h4, h5, h6 {
+    color: $color4;
+  }
 
   .monster-index-wrap {
     .monster-icon {
@@ -150,6 +154,32 @@ ul {
     }
     .monster-index {
       @include vJustify(sitePx(5 / 2));
+    }
+  }
+  
+  .base-stats {
+    > li {
+      background-color: $color3;
+      margin-bottom: sitePx(1 /2);
+
+      > div {
+        position: relative;
+        color: $color2;
+        background-color: $color5;
+        height: sitePx(3);
+        @include border-radius(0 sitePx(1 / 4) sitePx(1 / 4) 0);
+        
+        &::before {
+          position: absolute;
+          content: attr(data-label);
+          top: 50%;
+          left: sitePx(1);
+          margin-top: -#{sitePx(3 / 2)};
+          font-size: .8rem;
+          width: sitePx(20);
+          @include vJustify(sitePx(3));
+        }
+      }
     }
   }
 
