@@ -1,16 +1,20 @@
 define([
   'util',
+  'conf',
   'backbone',
   'jquery',
   'views/index',
+  'views/list',
   'views/detail',
   'collections/monster'
 ],
 function(
   util,
+  conf,
   Backbone,
   $,
   IndexView,
+  ListView,
   DetailView,
   MonsterCollection
 ) {
@@ -29,16 +33,25 @@ function(
     },
     routes: {
       '': 'index',
-      'detail/:cid': 'detail'
+      'list': 'list',
+      'detail/:cid': 'detail',
+      'about': 'about'
     },
     index: function() {
       var that = this;
       util.l('Routing index');
+      new IndexView({
+        el: '#js-view-index'
+      });
+    },
+    list: function() {
+      var that = this;
+      util.l('Routing list');
 
       util.scroller.restore();
       that.collectionFetch.done(function() {
-        new IndexView({
-          el: '#js-view-index',
+        new ListView({
+          el: '#js-view-list',
           collection: that.collection
         });
       });
@@ -57,6 +70,12 @@ function(
         });
       });
     },
+    about: function() {
+      var that = this;
+      util.l('Routing about');
+      util.title(conf.titles.about);
+    },
+
     switchView: function(route) {
       util.l('Switch view to ->', route);
 

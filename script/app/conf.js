@@ -60,8 +60,10 @@ define('conf', ['jquery'], function ($) {
         misc: 'その他'
       },
       titles: {
-        index: 'ポケモン図鑑',
-        detail: '%sの詳細'
+        index: 'Simple Pokédex',
+        list: 'ポケモン一覧',
+        detail: 'vs %s',
+        about: 'このサイトについて'
       }
     },
     en: {
@@ -111,8 +113,10 @@ define('conf', ['jquery'], function ($) {
         misc: 'Misc'
       },
       titles: {
-        index: 'Pokédex',
-        detail: 'About %s'
+        index: 'Simple Pokédex',
+        list: 'Pokémon List',
+        detail: 'vs %s',
+        about: 'About this site'
       }
     }
   };

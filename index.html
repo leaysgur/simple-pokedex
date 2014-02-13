@@ -13,8 +13,14 @@
   </header>
 
   <div class="view-content">
-    <div id="js-view-index" class="js-view-contents view-index"></div>
+    <div id="js-view-index" class="js-view-contents view-index">
+    </div>
+    <div id="js-view-list" class="js-view-contents view-list"></div>
     <div id="js-view-detail" class="js-view-contents view-detail"></div>
+    <div id="js-view-about" class="js-view-contents view-about">
+      ベタ書きほげほげ
+    </div>
+
   </div>
 
   <footer class="view-footer">
@@ -23,14 +29,21 @@
 </div>
 
 <script id="js-tmpl-index" type="text/x-handlebars-tmpl">
+  <a href="#" class="anchor-btn js-go-to" data-href="/about">{{titles.about}}</a>
+  <a href="#" class="anchor-btn js-go-to" data-href="/list">{{titles.list}}</a>
+</script>
+
+
+<script id="js-tmpl-list" type="text/x-handlebars-tmpl">
 <ul class="monster-list">
-  {{#each this}}
-  <li><a data-href="#detail/{{this.cid}}" class="icon-id-{{this.id}}">{{this.name}}</a></li>
+  {{#each monsters}}
+  <li><a data-cid="{{this.cid}}" class="icon-id-{{this.id}} js-show-detail">{{this.name}}</a></li>
   {{/each}}
 </ul>
+<a href="#" class="js-go-to anchor-btn" data-href="/">{{titles.index}}</a>
 </script>
-<script id="js-tmpl-detail" type="text/x-handlebars-tmpl">
 
+<script id="js-tmpl-detail" type="text/x-handlebars-tmpl">
 <section class="monster-index-wrap box">
   <div class="monster-icon icon-id-{{_id}}"></div>
   <div class="monster-index flex">
@@ -107,7 +120,7 @@
   <h2>{{words.abilities.normal}}</h2>
   {{#each abilities.normal}}
   <h3 class="js-toggle-trigger">{{this.name}}</h3>
-  <div class="desc">{{this.desc}}</div>
+  <div class="texts">{{this.desc}}</div>
   {{/each}}
 </section>
 
@@ -116,7 +129,7 @@
   <h2>{{words.abilities.hidden}}</h2>
   {{#each abilities.hidden}}
   <h3 class="js-toggle-trigger">{{this.name}}</h3>
-  <div class="desc">{{this.desc}}</div>
+  <div class="texts">{{this.desc}}</div>
   {{/each}}
 </section>
 {{/if}}
@@ -124,10 +137,11 @@
 
 <section>
   <h2>{{words.misc}}</h2>
-  {{words.height}}: {{heightStr}} / {{words.weight}}: {{weightStr}}
+  <div class="texts">{{words.height}}: {{heightStr}} / {{words.weight}}: {{weightStr}}</div>
 </section>
 
-<a href="/" class="js-back-to-top anchor-btn">Back to top</a>
+<a href="#" class="js-go-to anchor-btn" data-href="/list">{{titles.list}}</a>
+<a href="#" class="js-go-to anchor-btn" data-href="/">{{titles.index}}</a>
 </script>
 
 <script src="/script/vendor/require.js"></script>

@@ -28,7 +28,10 @@ define([
 
       this.model = this.collection.get(this.cid);
 
-      var data = $.extend(this.model.attributes, { words: conf.words });
+      var data = $.extend(this.model.attributes, {
+        words: conf.words,
+        titles: conf.titles
+      });
 
       // タイプ相性
       data.typesChartStr = this.model.getDefTypeChartStr();
@@ -44,18 +47,13 @@ define([
       // 種族値のグラフを出す
       data.baseStatsRatio = this.model.getBaseStatsRatio();
 
-
       this.$el.html(this.template(data));
       util.title(conf.titles.detail, data.name);
 
       return this;
     },
     events: {
-      'click .js-back-to-top': 'backToTop'
-    },
-    backToTop: function(e) {
-      e.preventDefault();
-      Backbone.history.navigate('/', {trigger: true});
+      'click .js-go-to': util.navigate
     }
   });
 

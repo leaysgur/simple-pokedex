@@ -21,6 +21,12 @@ define('util', ['conf'], function (conf) {
         return (i < args.length) ? args[i++] : '';
       });
     },
+    navigate: function(e) {
+      e.preventDefault();
+      var dest = $(e.target).data('href');
+      Backbone.history.navigate(dest, {trigger: true});
+    },
+
     scroller: (function() {
       var scrollY = 0;
       var $window = $('html,body');

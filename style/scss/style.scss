@@ -43,6 +43,10 @@ ul {
   @include border-radius(sitePx(1 / 4));
 }
 
+.texts {
+  font-size: .8rem;
+}
+
 .box {
   @include display-box;
 }
@@ -81,8 +85,8 @@ ul {
 }
 
 
-// Index
-.view-index {
+// List
+.view-list {
   .monster-list {
     > li {
       a {
@@ -182,11 +186,4 @@ ul {
       }
     }
   }
-  
-  .abilities {
-    .desc {
-      font-size: .8rem;
-    }
-  }
-
 }

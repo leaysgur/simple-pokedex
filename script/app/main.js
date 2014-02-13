@@ -8,7 +8,13 @@ function(
 ) {
   'use strict';
 
-  new AppRouter();
-  Backbone.history.start();
+  var App = {
+    init: function() {
+      this.Router = new AppRouter();
+      Backbone.history.start();
+    }
+  };
+
+  App.init();
 
 });

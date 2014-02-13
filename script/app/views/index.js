@@ -25,13 +25,10 @@ define([
       var that = this;
       util.l('IndexView render', that);
 
-      var data = _.map(that.collection.models, function(model) {
-        return {
-          name: model.attributes.name,
-          id: model.attributes._id,
-          cid: model.cid
-        };
-      });
+
+      var data = {
+        titles: conf.titles
+      };
 
       that.$el.html(that.template(data));
 
@@ -40,13 +37,7 @@ define([
       return that;
     },
     events: {
-      'click a': 'showDetail'
-    },
-    showDetail: function(e) {
-      e.preventDefault();
-
-      var $this = $(e.target);
-      Backbone.history.navigate($this.data('href'), {trigger: true});
+      'click .js-go-to': util.navigate
     }
   });
 
