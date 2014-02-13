@@ -94,7 +94,7 @@ ul {
         display: block;
         padding-left: sitePx(7);
         @include vJustify(sitePx(7));
-        
+
         &::before {
           @extend %monster-icon;
           top: 50%;
@@ -102,7 +102,7 @@ ul {
           left: sitePx(1);
         }
       }
-      
+
       & + li {
         border-top: 1px solid $color3;
       }
@@ -116,7 +116,7 @@ ul {
   > section {
     @extend %content-base;
   }
-  
+
   h2, h3, h4, h5, h6 {
     color: $color4;
   }
@@ -136,7 +136,7 @@ ul {
       @include vJustify(sitePx(5 / 2));
     }
   }
-  
+
   .base-stats {
     > li {
       position: relative;
@@ -147,12 +147,12 @@ ul {
         background-color: $color5;
         height: sitePx(3);
         @include border-radius(0 sitePx(1 / 4) sitePx(1 / 4) 0);
-        
+
         &::before {
           position: absolute;
           content: attr(data-label);
           top: 50%;
-          right: sitePx(1);
+          left: sitePx(1);
           margin-top: -#{sitePx(3 / 2)};
           font-size: .8rem;
           color: $color4;
@@ -162,9 +162,9 @@ ul {
       }
     }
   }
-  
+
   .monster-type { margin-right: sitePx(1 / 4); }
-  
+
   .type-charts {
     > li {
       margin-bottom: sitePx(1 / 2);
@@ -172,12 +172,12 @@ ul {
       .label {
         text-align: center;
         width: sitePx(5);
-        
+
         &.small {
           text-align: left;
           font-size: .9rem;
         }
-        
+
         & + div {
           padding-left: sitePx(1);
           border-left: 1px solid $color3;
