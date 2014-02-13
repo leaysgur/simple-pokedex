@@ -131,8 +131,8 @@ define([
    * @return {Number} 小数点第一位までの割合
    */
   function getBaseStatsRatio(stat, isTotal) {
-    // 現在の最高はC194とかいうバケモノなので200、合計も780というそのバケモノ
-    var MAX_STAT = 200, MAX_ALL_STAT = 780;
+    // 現在の最高はH255とかいうバケモノなので255、合計は780という別のバケモノ
+    var MAX_STAT = 255, MAX_ALL_STAT = 780;
 
     var maxStat = (isTotal) ? MAX_ALL_STAT : MAX_STAT;
     return ((stat / maxStat) * 100).toFixed(1);
