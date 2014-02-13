@@ -49,6 +49,13 @@ define([
       util.title(conf.titles.detail, data.name);
 
       return this;
+    },
+    events: {
+      'click .js-back-to-top': 'backToTop'
+    },
+    backToTop: function(e) {
+      e.preventDefault();
+      Backbone.history.navigate('/', {trigger: true});
     }
   });
 

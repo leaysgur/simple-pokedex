@@ -159,12 +159,11 @@ ul {
     }
   }
   
-  .monster-type + .monster-type { margin-left: sitePx(1 / 2); }
+  .monster-type { margin-right: sitePx(1 / 4); }
   
   .type-charts {
     > li {
-      margin-bottom: sitePx(1 /2);
-      @include box-align(center);
+      margin-bottom: sitePx(1 / 2);
 
       .label {
         text-align: center;
@@ -172,7 +171,7 @@ ul {
         
         &.small {
           text-align: left;
-          font-size: .8rem;
+          font-size: .9rem;
         }
         
         & + div {
@@ -187,6 +186,11 @@ ul {
   .abilities {
     .desc {
       font-size: .9rem;
+      display: none;
+      
+      &.js-active {
+        display: block;
+      }
     }
   }
 

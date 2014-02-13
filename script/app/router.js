@@ -26,7 +26,6 @@ function(
       this.on('route', function(route) {
         this.switchView(route);
       });
-      this.globals();
     },
     routes: {
       '': 'index',
@@ -63,14 +62,6 @@ function(
 
       $('.js-view-contents').hide();
       $('#js-view-'+route).show();
-    },
-    globals: function() {
-      util.l('Global functions');
-      $('.js-back-to-top').on('click', function(e) {
-        e.preventDefault();
-        Backbone.history.navigate('/', {trigger: true});
-      });
-
     }
   });
 

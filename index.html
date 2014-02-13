@@ -106,7 +106,7 @@
 <section class="abilities">
   <h2>{{words.abilities.normal}}</h2>
   {{#each abilities.normal}}
-  <h3>{{this.name}}</h3>
+  <h3 class="js-toggle-trigger">{{this.name}}</h3>
   <div class="desc">{{this.desc}}</div>
   {{/each}}
 </section>
@@ -115,7 +115,7 @@
 <section class="abilities">
   <h2>{{words.abilities.hidden}}</h2>
   {{#each abilities.hidden}}
-  <h3>{{this.name}}</h3>
+  <h3 class="js-toggle-trigger">{{this.name}}</h3>
   <div class="desc">{{this.desc}}</div>
   {{/each}}
 </section>
@@ -127,7 +127,7 @@
   {{words.height}}: {{heightStr}} / {{words.weight}}: {{weightStr}}
 </section>
 
-<a href="#" class="js-back-to-top anchor-btn">Back to top</a>
+<a href="/" class="js-back-to-top anchor-btn">Back to top</a>
 </script>
 
 <script src="/script/vendor/require.js"></script>
