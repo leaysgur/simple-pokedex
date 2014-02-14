@@ -26,7 +26,10 @@ define('util', ['conf'], function (conf) {
       var dest = $(e.target).data('href');
       Backbone.history.navigate(dest, {trigger: true});
     },
-
+    backTo: function(e) {
+      e.preventDefault();
+      history.back();
+    },
     scroller: (function() {
       var scrollY = 0;
       var $window = $('html,body');

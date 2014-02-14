@@ -17,6 +17,7 @@ define([
 
   var MonsterCollection = Backbone.Collection.extend({
     model: MonsterModel,
+    comparator: 'nationalPokedexNumber',
     initialize: function() {
       util.l('Collection init!');
     },
@@ -37,7 +38,6 @@ define([
         var baseData = base[0], typeData = type[0], langData = lang[0];
         var fixedData = overrideBaseData(baseData, typeData, langData);
 
-        that.comparator = 'cid';
         that.reset(fixedData);
         d.resolve();
 

@@ -36,11 +36,16 @@ ul {
   display: block;
   text-align: center;
   text-decoration: none;
-  margin: sitePx(1);
+  margin: #{sitePx(1)}px;
   color: $color2;
   background-color: $color5;
-  @include vJustify(sitePx(5));
-  @include border-radius(sitePx(1 / 4));
+  @include vJustify(#{sitePx(5)}px);
+  @include border-radius(#{sitePx(1 / 4)}px);
+  
+  &.m-btn-sub {
+    color: $color4;
+    background-color: $color3;
+  }
 }
 
 .texts {
@@ -59,10 +64,10 @@ ul {
   display: inline-block;
   color: $color2;
   font-size: .7rem;
-  padding: sitePx(1 / 4);
-  width: sitePx(7);
+  padding: #{sitePx(1 / 4)}px;
+  width: #{sitePx(7)}px;
   text-align: center;
-  @include border-radius(sitePx(1 / 2));
+  @include border-radius(#{sitePx(1 / 2)}px);
 }
 /*+
  * Stylings
@@ -73,17 +78,39 @@ ul {
   background-color: $color1;
   color: $color2;
   text-align: center;
-  @include vJustify(sitePx(4));
+  @include vJustify(#{sitePx(4)}px);
 }
-
+.view-content {
+  padding-bottom: #{sitePx(4)}px;
+}
 .view-footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
   background-color: $color4;
   color: $color2;
   text-align: center;
-  @include vJustify(sitePx(4));
+  @include vJustify(#{sitePx(4)}px);
   font-size: .8rem;
 }
 
+
+// Index
+.l-category-list {
+  text-align: center;
+  margin: #{sitePx(1) - sitePx(1 / 4)}px;
+
+  > li {
+    display: inline-block;
+    width: 20%;
+    
+    a {
+      margin: #{sitePx(1 / 4)}px;
+      
+    }
+  }
+}
 
 // List
 .view-list {
@@ -92,14 +119,14 @@ ul {
       a {
         position: relative;
         display: block;
-        padding-left: sitePx(7);
-        @include vJustify(sitePx(7));
+        padding-left: #{sitePx(7)}px;
+        @include vJustify(#{sitePx(7)}px);
 
         &::before {
           @extend %monster-icon;
           top: 50%;
-          margin-top: -#{sitePx(5 / 2)};
-          left: sitePx(1);
+          margin-top: -#{sitePx(5 / 2)}px;
+          left: #{sitePx(1)}px;
         }
       }
 
@@ -123,9 +150,9 @@ ul {
 
   .monster-index-wrap {
     .monster-icon {
-      width: sitePx(5);
-      height: sitePx(5);
-      margin-right: sitePx(1);
+      width: #{sitePx(5)}px;
+      height: #{sitePx(5)}px;
+      margin-right: #{sitePx(1)}px;
 
       &::before {
         @extend %monster-icon;
@@ -133,7 +160,7 @@ ul {
 
     }
     .monster-index {
-      @include vJustify(sitePx(5 / 2));
+      @include vJustify(#{sitePx(5 / 2)}px);
     }
   }
 
@@ -141,37 +168,37 @@ ul {
     > li {
       position: relative;
       background-color: $color3;
-      margin-bottom: sitePx(1 /2);
+      margin-bottom: #{sitePx(1 /2)}px;
 
       > div {
         background-color: $color5;
-        height: sitePx(3);
-        @include border-radius(0 sitePx(1 / 4) sitePx(1 / 4) 0);
+        height: #{sitePx(3)}px;
+        @include border-radius(0 #{sitePx(1 / 4)}px #{sitePx(1 / 4)}px 0);
 
         &::before {
           position: absolute;
           content: attr(data-label);
           top: 50%;
-          left: sitePx(1);
-          margin-top: -#{sitePx(3 / 2)};
+          left: #{sitePx(1)}px;
+          margin-top: -#{sitePx(3 / 2)}px;
           font-size: .8rem;
           color: $color4;
           @include text-shadow(1px 0 $color2, 0 1px $color2, -1px 0 $color2, 0 -1px $color2);
-          @include vJustify(sitePx(3));
+          @include vJustify(#{sitePx(3)}px);
         }
       }
     }
   }
 
-  .monster-type { margin-right: sitePx(1 / 4); }
+  .monster-type { margin-right: #{sitePx(1 / 4)}px; }
 
   .type-charts {
     > li {
-      margin-bottom: sitePx(1 / 2);
+      margin-bottom: #{sitePx(1 / 2)}px;
 
       .label {
         text-align: center;
-        width: sitePx(5);
+        width: #{sitePx(5)}px;
 
         &.small {
           text-align: left;
@@ -179,7 +206,7 @@ ul {
         }
 
         & + div {
-          padding-left: sitePx(1);
+          padding-left: #{sitePx(1)}px;
           border-left: 1px solid $color3;
           @include box-sizing(border-box);
         }

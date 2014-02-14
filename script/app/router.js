@@ -34,6 +34,7 @@ function(
     routes: {
       '': 'index',
       'list': 'list',
+      'list/ctg/:ctg': 'list',
       'detail/:cid': 'detail',
       'about': 'about'
     },
@@ -44,15 +45,18 @@ function(
         el: '#js-view-index'
       });
     },
-    list: function() {
+    list: function(ctg) {
       var that = this;
-      util.l('Routing list');
+      util.l('Routing list', ctg);
 
       util.scroller.restore();
       that.collectionFetch.done(function() {
         new ListView({
           el: '#js-view-list',
           collection: that.collection
+        },
+        {
+          ctg: ctg
         });
       });
     },

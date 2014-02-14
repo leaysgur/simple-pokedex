@@ -29,8 +29,14 @@
 </div>
 
 <script id="js-tmpl-index" type="text/x-handlebars-tmpl">
-  <a href="#" class="anchor-btn js-go-to" data-href="/about">{{titles.about}}</a>
-  <a href="#" class="anchor-btn js-go-to" data-href="/list">{{titles.list}}</a>
+<ul class="l-category-list">
+  {{#each categories}}<!--
+  --><li><a href="#" data-ctg-key="{{this.key}}" class="js-ctg-btn anchor-btn">{{this.label}}</a></li><!--
+  -->{{/each}}
+</ul>
+
+<a href="#" class="anchor-btn js-go-to" data-href="/list">{{titles.list}}</a>
+<a href="#" class="anchor-btn m-btn-sub js-go-to" data-href="/about">{{titles.about}}</a>
 </script>
 
 
@@ -140,7 +146,7 @@
   <div class="texts">{{words.height}}: {{heightStr}} / {{words.weight}}: {{weightStr}}</div>
 </section>
 
-<a href="#" class="js-go-to anchor-btn" data-href="/list">{{titles.list}}</a>
+<a href="#" class="js-back-to anchor-btn">{{titles.list}}</a>
 <a href="#" class="js-go-to anchor-btn" data-href="/">{{titles.index}}</a>
 </script>
 

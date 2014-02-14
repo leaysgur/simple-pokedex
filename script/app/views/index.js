@@ -27,7 +27,8 @@ define([
 
 
       var data = {
-        titles: conf.titles
+        titles: conf.titles,
+        categories: conf.categories
       };
 
       that.$el.html(that.template(data));
@@ -37,7 +38,13 @@ define([
       return that;
     },
     events: {
-      'click .js-go-to': util.navigate
+      'click .js-go-to': util.navigate,
+      'click .js-ctg-btn': 'doCtgSearch'
+    },
+    doCtgSearch: function(e) {
+      e.preventDefault();
+      var ctg = $(e.target).data('ctg-key');
+      Backbone.history.navigate('/list/ctg/' + ctg, {trigger: true});
     }
   });
 

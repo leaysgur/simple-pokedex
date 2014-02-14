@@ -17,7 +17,8 @@ define([
 
   var ListView = Backbone.View.extend({
     initialize: function() {
-      util.l('ListView init');
+      this.opt = Array.prototype.slice.call(arguments, 1)[0];
+      util.l('ListView init with option ->', this.opt);
       this.render();
     },
     template: Handlebars.compile($('#js-tmpl-list').html()),
@@ -25,10 +26,29 @@ define([
       var that = this;
       util.l('ListView render', that);
 
-      var monsters = _.map(that.collection.models, function(model) {
+      var monsters = [];
+      var ctg = this.opt.ctg || null;
+      if (ctg) {
+        var contents = conf.categories[ctg].contents;
+        // これで返ってくるのがBackbone.CollectionじゃなくてただのModelの詰まった配列・・
+        monsters = that.collection.filter(function(model) {
+          var firstLetter = model.get('name').charAt(0);
+          return _.some(contents, function(content) {
+            return content === firstLetter;
+          });
+        });
+        // よって、Collection.sort() しても意味ないのでこっちでやる
+        // まあそのおかげでカテゴリ絞ってない時のリストの並びは今まで通りでいられる
+        monsters = _.sortBy(monsters, function(model) { return model.get('name'); });
+      }
+
+      // カテゴリ絞ってないとき
+      if (!monsters.length) { monsters = that.collection; }
+
+      monsters = monsters.map(function(model) {
         return {
-          name: model.attributes.name,
-          id: model.attributes._id,
+          name: model.get('name'),
+          id: model.get('_id'),
           cid: model.cid
         };
       });
@@ -52,8 +72,8 @@ define([
     showDetail: function(e) {
       e.preventDefault();
 
-      var $this = $(e.target);
-      Backbone.history.navigate('/detail/'+$this.data('cid'), {trigger: true});
+      var cid = $(e.target).data('cid');
+      Backbone.history.navigate('/detail/'+cid, {trigger: true});
     }
   });
 

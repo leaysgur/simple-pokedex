@@ -53,7 +53,8 @@ define([
       return this;
     },
     events: {
-      'click .js-go-to': util.navigate
+      'click .js-go-to': util.navigate,
+      'click .js-back-to': util.backTo
     }
   });
 

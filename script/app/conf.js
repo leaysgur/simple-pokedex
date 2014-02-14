@@ -17,6 +17,18 @@ define('conf', ['jquery'], function ($) {
       jsonPath: {
         lang: '/data/lang/ja.json',
       },
+      categories: {
+        a: { key: 'a', label: 'ア', contents: ['ア', 'イ', 'ウ', 'エ', 'オ']},
+        k: { key: 'k', label: 'カ', contents: ['カ', 'キ', 'ク', 'ケ', 'コ']},
+        s: { key: 's', label: 'サ', contents: ['サ', 'シ', 'ス', 'セ', 'ソ']},
+        t: { key: 't', label: 'タ', contents: ['タ', 'チ', 'ツ', 'テ', 'ト']},
+        n: { key: 'n', label: 'ナ', contents: ['ナ', 'ニ', 'ヌ', 'ネ', 'ノ']},
+        h: { key: 'h', label: 'ハ', contents: ['ハ', 'ヒ', 'フ', 'ヘ', 'ホ']},
+        m: { key: 'm', label: 'マ', contents: ['マ', 'ミ', 'ム', 'メ', 'モ']},
+        y: { key: 'y', label: 'ヤ', contents: ['ヤ', 'ユ', 'ヨ']},
+        r: { key: 'r', label: 'ラ', contents: ['ラ', 'リ', 'ル', 'レ', 'ロ']},
+        w: { key: 'w', label: 'ワ', contents: ['ワ']}
+      },
       words: {
         type: 'タイプ',
         typeChart: 'タイプ相性',
@@ -69,6 +81,34 @@ define('conf', ['jquery'], function ($) {
     en: {
       jsonPath: {
         lang: '/data/lang/en.json',
+      },
+      categories: {
+        a: { key: 'a', label: 'A', contents: ['A']},
+        b: { key: 'b', label: 'B', contents: ['B']},
+        c: { key: 'c', label: 'C', contents: ['C']},
+        d: { key: 'd', label: 'D', contents: ['D']},
+        e: { key: 'e', label: 'E', contents: ['E']},
+        f: { key: 'f', label: 'F', contents: ['F']},
+        g: { key: 'g', label: 'G', contents: ['G']},
+        h: { key: 'h', label: 'H', contents: ['H']},
+        i: { key: 'i', label: 'I', contents: ['I']},
+        j: { key: 'j', label: 'J', contents: ['J']},
+        k: { key: 'k', label: 'K', contents: ['K']},
+        l: { key: 'l', label: 'L', contents: ['L']},
+        m: { key: 'm', label: 'M', contents: ['M']},
+        n: { key: 'n', label: 'N', contents: ['N']},
+        o: { key: 'o', label: 'O', contents: ['O']},
+        p: { key: 'p', label: 'P', contents: ['P']},
+        q: { key: 'q', label: 'Q', contents: ['Q']},
+        r: { key: 'r', label: 'R', contents: ['R']},
+        s: { key: 's', label: 'S', contents: ['S']},
+        t: { key: 't', label: 'T', contents: ['T']},
+        u: { key: 'u', label: 'U', contents: ['U']},
+        v: { key: 'v', label: 'V', contents: ['V']},
+        w: { key: 'w', label: 'W', contents: ['W']},
+        x: { key: 'x', label: 'X', contents: ['X']},
+        y: { key: 'y', label: 'Y', contents: ['Y']},
+        z: { key: 'z', label: 'Z', contents: ['Z']}
       },
       words: {
         type: 'Type',
