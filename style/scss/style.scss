@@ -156,21 +156,38 @@ body {
   @include border-radius(#{sitePx(1 / 2)}px);
 }
 
+.b-monster-icon {
+  position: relative;
+  width: #{sitePx(5)}px;
+  height: #{sitePx(5)}px;
 
-// Index
-.b-category-list {
-  text-align: center;
-
-  > li {
-    display: inline-block;
-    width: 20%;
-    
-    a {
-      margin: #{sitePx(1 / 4)}px;
-    }
+  &::before {
+    @extend %monster-icon;
+    left: 0;
+    top: 0;
   }
 }
 
+// Index
+.l-view-index {
+  .b-category-list {
+    text-align: center;
+  
+    > li {
+      display: inline-block;
+      width: 20%;
+      
+      a {
+        margin: #{sitePx(1 / 4)}px;
+      }
+    }
+  }
+
+  .b-anchor-btn.m-about-site {
+    @include display-box;
+    @include box-pack(center);
+  }
+}
 // List
 .l-view-list {
   .b-monster-list {
@@ -204,16 +221,8 @@ body {
 // Detail
 .l-view-detail {
   .b-monster-index-wrap {
-    .e-monster-icon {
-      width: #{sitePx(5)}px;
-      height: #{sitePx(5)}px;
-      margin-right: #{sitePx(1)}px;
-
-      &::before {
-        @extend %monster-icon;
-      }
-    }
     .e-monster-index {
+      margin-left: #{sitePx(1)}px;
       @include vJustify(#{sitePx(5 / 2)}px);
     }
   }

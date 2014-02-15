@@ -33,7 +33,7 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<section class="b-monster-index-wrap box">\n  <div class="e-monster-icon m-icon-id-' +
+__p += '<section class="b-monster-index-wrap box">\n  <div class="b-monster-icon m-icon-id-' +
 ((__t = ( _id )) == null ? '' : __t) +
 '"></div>\n  <div class="e-monster-index flex">\n    <h2>' +
 ((__t = ( name )) == null ? '' : __t) +
@@ -224,7 +224,7 @@ __p += '\n  </ul>\n</section>\n<section>\n  <h2>' +
 ((__t = ( texts.list.h )) == null ? '' : __t) +
 '</h2>\n  <a href="#" class="b-anchor-btn js-go-to m-no-margin" data-href="/list">' +
 ((__t = ( titles.list )) == null ? '' : __t) +
-'</a>\n</section>\n\n<a href="#" class="b-anchor-btn m-btn-sub js-go-to" data-href="/about">' +
+'</a>\n</section>\n\n<a href="#" class="b-anchor-btn m-btn-sub js-go-to m-about-site" data-href="/about"><div class="b-monster-icon m-icon-id-0"></div>' +
 ((__t = ( titles.about )) == null ? '' : __t) +
 '</a>';
 

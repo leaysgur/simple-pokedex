@@ -19,13 +19,17 @@ $basePx: 8;
   }
 }
 
+%sprite {
+  background-image: url(/img/poke-sprites.png);
+  background-repeat: no-repeat;
+}
+
 %monster-icon {
+  @extend %sprite;
   position: absolute;
   content: "";
   width: #{sitePx(5)}px;
   height: #{sitePx(5)}px;
-  background-image: url(/img/poke-sprites.png);
-  background-repeat: no-repeat;
 }
 
 %content-base {
