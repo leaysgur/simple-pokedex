@@ -1,9 +1,11 @@
 require([
   'backbone',
+  'handlebars',
   'router'
 ],
 function(
   Backbone,
+  Handlebars,
   AppRouter
 ) {
   'use strict';

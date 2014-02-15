@@ -1,15 +1,11 @@
 define([
   'util',
   'conf',
-  'underscore',
-  'jquery',
   'backbone',
   'models/monster'
 ], function (
   util,
   conf,
-  _,
-  $,
   Backbone,
   MonsterModel
 ) {

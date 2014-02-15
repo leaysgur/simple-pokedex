@@ -1,14 +1,10 @@
 define([
   'util',
   'conf',
-  'underscore',
-  'jquery',
   'backbone'
 ], function (
   util,
   conf,
-  _,
-  $,
   Backbone
 ) {
   'use strict';
