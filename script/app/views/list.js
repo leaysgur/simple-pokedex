@@ -24,7 +24,8 @@ define([
 
       var monsters = [];
       var ctg = this.opt.ctg || null;
-      if (ctg) { monsters = getCategorizedCollection(that.collection, ctg); }
+      var contents = conf.categories[ctg] && conf.categories[ctg].contents || null;
+      if (contents) { monsters = getCategorizedCollection(that.collection, contents); }
 
       // カテゴリ絞ってないとき
       if (!monsters.length) { monsters = that.collection; }
@@ -62,11 +63,10 @@ define([
 
   /**
    * @param {Array} collection MonsterCollectionに準ずる配列
-   * @param {String} ctg どの絞り込みキーか
+   * @param {String} contents どの絞り込みカテゴリたちか
    * @return {Array} monsters 絞りこまれ、ソートされたMonsterCollectionに準ずる配列
    */
-  function getCategorizedCollection(collection, ctg) {
-    var contents = conf.categories[ctg].contents;
+  function getCategorizedCollection(collection, contents) {
     var monsters = [];
     // これで返ってくるのがBackbone.CollectionじゃなくてただのModelの詰まった配列・・
     monsters = collection.filter(function(model) {
