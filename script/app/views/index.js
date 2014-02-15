@@ -32,7 +32,6 @@ define([
       };
 
       that.$el.html(that.template(data));
-
       util.title(conf.titles.index);
 
       return that;

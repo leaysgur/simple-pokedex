@@ -30,6 +30,20 @@ define('util', ['conf'], function (conf) {
       e.preventDefault();
       history.back();
     },
+    loading: (function() {
+      var $layer = $('#js-loading-layer');
+      return {
+        show: function() {
+          $layer.addClass('is-shown');
+        },
+        hide: function() {
+          var t = setTimeout(function() {
+            $layer.removeClass('is-shown');
+            clearTimeout(t);
+          }, 100);
+        }
+      };
+    }()),
     scroller: (function() {
       var scrollY = 0;
       var $window = $('html,body');

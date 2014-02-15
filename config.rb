@@ -4,6 +4,8 @@
 http_path = "/"
 css_dir = "style/css"
 sass_dir = "style/scss"
+# 実際は/img/だがそんな記載はScss側で書く
+images_dir = "/"
 output_style = ":compressed"
 
 # You can select your preferred output style here (can be overridden via the command line):

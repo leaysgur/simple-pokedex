@@ -27,9 +27,6 @@ function(
 
       this.collection = new MonsterCollection();
       this.collectionFetch = this.collection.fetch();
-      this.on('route', function(route) {
-        this.switchView(route);
-      });
     },
     routes: {
       '': 'index',
@@ -41,14 +38,18 @@ function(
     index: function() {
       var that = this;
       util.l('Routing index');
+
+      that.onRouteStart('index');
       new IndexView({
         el: '#js-view-index'
       });
+      that.onRouteEnd('index');
     },
     list: function(ctg) {
       var that = this;
       util.l('Routing list', ctg);
 
+      that.onRouteStart('list');
       util.scroller.restore();
       that.collectionFetch.done(function() {
         new ListView({
@@ -58,12 +59,14 @@ function(
         {
           ctg: ctg
         });
+        that.onRouteEnd('list');
       });
     },
     detail: function(cid) {
       var that = this;
       util.l('Routing detail cid ->', cid);
 
+      that.onRouteStart('detail');
       util.scroller.store(window.scrollY);
       that.collectionFetch.done(function() {
         new DetailView({
@@ -72,19 +75,32 @@ function(
         }, {
           cid: cid
         });
+        that.onRouteEnd('detail');
       });
     },
     about: function() {
       var that = this;
       util.l('Routing about');
-      util.title(conf.titles.about);
-    },
 
-    switchView: function(route) {
+      that.onRouteStart('about');
+/*
+      new IndexView({
+        el: '#js-view-index'
+      });
+*/
+      util.title(conf.titles.about);
+
+      that.onRouteEnd('about');
+    },
+    onRouteStart: function(route) {
+      util.loading.show();
+    },
+    onRouteEnd: function(route) {
       util.l('Switch view to ->', route);
 
       $('.js-view-contents').hide();
       $('#js-view-'+route).show();
+      util.loading.hide();
     }
   });
 

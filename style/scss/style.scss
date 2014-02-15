@@ -74,20 +74,27 @@ ul {
  ****************************************************/
 
 // Common
-.view-header {
+.l-view-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
   background-color: $color1;
   color: $color2;
   text-align: center;
   @include vJustify(#{sitePx(4)}px);
 }
-.view-content {
-  padding-bottom: #{sitePx(4)}px;
+.l-view-content {
+  padding: #{sitePx(4)}px 0;
+  z-index: 1;
 }
-.view-footer {
+.l-view-footer {
   position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
+  z-index: 10;
   background-color: $color4;
   color: $color2;
   text-align: center;
@@ -95,6 +102,31 @@ ul {
   font-size: .8rem;
 }
 
+.l-loading-layer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background-color: rgba($color3, .5);
+  display: none;
+  
+  &::after {
+    position: absolute;
+    content: "";
+    width: 220px;
+    height: 19px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -110px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: inline-image("/img/loading.gif");
+  }
+  
+  &.is-shown { display: block; }
+}
 
 // Index
 .l-category-list {

@@ -60,7 +60,6 @@ define([
 
 
       that.$el.html(that.template(data));
-
       util.title(conf.titles.list);
 
       return that;
