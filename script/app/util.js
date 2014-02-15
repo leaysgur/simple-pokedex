@@ -5,7 +5,7 @@ define('util', ['conf'], function (conf) {
   if (instance) return instance;
 
   var util = {
-    l: console.log.bind(console),
+    l: function(){},//console.log.bind(console),
     title: (function() {
       var $header = $('#js-view-header');
       return function(title) {

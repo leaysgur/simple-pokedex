@@ -54,10 +54,9 @@ define([
       var that = this;
 
       $.when(
-        // キャッシュOFFにしてるの忘れない
-        $.ajax({ url: jsonPath.base, dataType: 'json', cache: false }),
-        $.ajax({ url: jsonPath.type, dataType: 'json', cache: false }),
-        $.ajax({ url: jsonPath.lang, dataType: 'json', cache: false })
+        $.ajax({ url: jsonPath.base, dataType: 'json' }),
+        $.ajax({ url: jsonPath.type, dataType: 'json' }),
+        $.ajax({ url: jsonPath.lang, dataType: 'json' })
       ).done(function(base, type, lang) {
         util.l('Ajax done', base, type, lang);
 
@@ -73,7 +72,7 @@ define([
         d.resolve();
 
       }).fail(function(jqXHR, textStatus, errorThrown) {
-        alert('えらー')
+        location.href = '/';
       });
 
     }
