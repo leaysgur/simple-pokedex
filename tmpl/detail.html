@@ -78,7 +78,7 @@
   <% }) %>
 </section>
 
-<% if (abilities.hidden) { %>
+<% if (abilities.hidden.length) { %>
 <section>
   <h2><%= words.abilities.hidden %></h2>
   <% _.forEach(abilities.hidden, function(abilitiy) { %>

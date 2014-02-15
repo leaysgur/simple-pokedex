@@ -164,7 +164,7 @@ __p += '\n  <h3 class="js-toggle-trigger">' +
 '</div>\n  ';
  }) ;
 __p += '\n</section>\n\n';
- if (abilities.hidden) { ;
+ if (abilities.hidden.length) { ;
 __p += '\n<section>\n  <h2>' +
 ((__t = ( words.abilities.hidden )) == null ? '' : __t) +
 '</h2>\n  ';
