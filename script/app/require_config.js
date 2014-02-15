@@ -10,6 +10,9 @@ require.config({
     handlebars: {
       exports: 'Handlebars'
     },
+    jquery: {
+      exports: ['$', 'jQuery']
+    },
     underscore: {
       exports: '_'
     },

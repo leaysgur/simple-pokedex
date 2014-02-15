@@ -20,6 +20,10 @@ ul {
   list-style: none;
 }
 
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 /*+
  * Modules
  ****************************************************/
@@ -134,6 +138,10 @@ body {
     color: $color4;
     background-color: $color3;
   }
+  
+  &.is-active {
+    opacity: .75;
+  }
 }
 
 .b-monster-type {
@@ -157,7 +165,6 @@ body {
     
     a {
       margin: #{sitePx(1 / 4)}px;
-      
     }
   }
 }
@@ -177,6 +184,10 @@ body {
           top: 50%;
           margin-top: -#{sitePx(5 / 2)}px;
           left: #{sitePx(1)}px;
+        }
+        
+        &.is-active {
+          background-color: $color3;
         }
       }
 

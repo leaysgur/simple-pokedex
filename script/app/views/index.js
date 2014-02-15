@@ -1,16 +1,10 @@
 define([
   'util',
   'conf',
-  'underscore',
-  'jquery',
-  'handlebars',
   'backbone'
 ], function (
   util,
   conf,
-  _,
-  $,
-  Handlebars,
   Backbone
 ) {
   'use strict';
@@ -24,7 +18,6 @@ define([
     render: function() {
       var that = this;
       util.l('IndexView render', that);
-
 
       var data = {
         titles: conf.titles,
@@ -48,8 +41,6 @@ define([
       Backbone.history.navigate('/list/ctg/' + ctg, {trigger: true});
     }
   });
-
-
 
   return IndexView;
 });
