@@ -28,19 +28,7 @@ define([
 
       var monsters = [];
       var ctg = this.opt.ctg || null;
-      if (ctg) {
-        var contents = conf.categories[ctg].contents;
-        // これで返ってくるのがBackbone.CollectionじゃなくてただのModelの詰まった配列・・
-        monsters = that.collection.filter(function(model) {
-          var firstLetter = model.get('name').charAt(0);
-          return _.some(contents, function(content) {
-            return content === firstLetter;
-          });
-        });
-        // よって、Collection.sort() しても意味ないのでこっちでやる
-        // まあそのおかげでカテゴリ絞ってない時のリストの並びは今まで通りでいられる
-        monsters = _.sortBy(monsters, function(model) { return model.get('name'); });
-      }
+      if (ctg) { monsters = getCategorizedCollection(that.collection, ctg); }
 
       // カテゴリ絞ってないとき
       if (!monsters.length) { monsters = that.collection; }
@@ -76,7 +64,26 @@ define([
     }
   });
 
-
+  /**
+   * @param {Array} collection MonsterCollectionに準ずる配列
+   * @param {String} ctg どの絞り込みキーか
+   * @return {Array} monsters 絞りこまれ、ソートされたMonsterCollectionに準ずる配列
+   */
+  function getCategorizedCollection(collection, ctg) {
+    var contents = conf.categories[ctg].contents;
+    var monsters = [];
+    // これで返ってくるのがBackbone.CollectionじゃなくてただのModelの詰まった配列・・
+    monsters = collection.filter(function(model) {
+      var firstLetter = model.get('name').charAt(0);
+      return _.some(contents, function(content) {
+        return content === firstLetter;
+      });
+    });
+    // よって、Collection.sort() しても意味ないのでこっちでやる
+    // まあそのおかげでカテゴリ絞ってない時のリストの並びは今まで通りでいられる
+    monsters = _.sortBy(monsters, function(model) { return model.get('name'); });
+    return monsters;
+  }
 
   return ListView;
 });
