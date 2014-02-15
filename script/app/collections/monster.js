@@ -27,7 +27,7 @@ define([
       var d = $.Deferred();
 
       // LocalStorage使える && データが既にある
-      if (isLocalStroageEnable() && storageKey in localStorage) {
+      if (util.isLocalStroageEnable() && (storageKey in localStorage)) {
         // 予防線をはっておくのよ
         try {
           that.fetchFromLocalStorage(d);
@@ -62,9 +62,9 @@ define([
         util.l('Ajax done', base, type, lang);
 
         var baseData = base[0], typeData = type[0], langData = lang[0];
-        var fixedData = overrideBaseData(baseData, typeData, langData);
+        var fixedData = overrideBaseData(baseData.monsters, typeData, langData);
 
-        if (isLocalStroageEnable()) {
+        if (util.isLocalStroageEnable()) {
           localStorage.removeItem(storageKey);
           localStorage.setItem(storageKey, JSON.stringify(fixedData));
         }
@@ -113,17 +113,6 @@ define([
     langData = null;
     return fixedData;
   };
-
-  function isLocalStroageEnable() {
-    var chk = 'simplePokedex';
-    try {
-      localStorage.setItem(chk, chk);
-      localStorage.removeItem(chk);
-      return true;
-    } catch(e) {
-      return false;
-    }
-  }
 
 
   return MonsterCollection;

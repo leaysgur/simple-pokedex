@@ -5,17 +5,21 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<section>\n  <h2>' +
-((__t = ( texts.a.h )) == null ? '' : __t) +
+((__t = ( texts.desc.h )) == null ? '' : __t) +
 '</h2>\n  <div class="texts">' +
-((__t = ( texts.a.c )) == null ? '' : __t) +
+((__t = ( texts.desc.c )) == null ? '' : __t) +
 '</div>\n</section>\n<section>\n  <h2>' +
-((__t = ( texts.b.h )) == null ? '' : __t) +
+((__t = ( texts.data.h )) == null ? '' : __t) +
 '</h2>\n  <div class="texts">' +
-((__t = ( texts.b.c )) == null ? '' : __t) +
+((__t = ( texts.data.c )) == null ? '' : __t) +
 '</div>\n</section>\n<section>\n  <h2>' +
-((__t = ( texts.c.h )) == null ? '' : __t) +
+((__t = ( texts.feature.h )) == null ? '' : __t) +
 '</h2>\n  <div class="texts">' +
-((__t = ( texts.c.c )) == null ? '' : __t) +
+((__t = ( texts.feature.c )) == null ? '' : __t) +
+'</div>\n</section>\n<section>\n  <h2>' +
+((__t = ( texts.contact.h )) == null ? '' : __t) +
+'</h2>\n  <div class="texts">' +
+((__t = ( texts.contact.c )) == null ? '' : __t) +
 '</div>\n</section>\n\n<a href="#" class="b-anchor-btn js-back-to">' +
 ((__t = ( titles.index )) == null ? '' : __t) +
 '</a>';
@@ -203,12 +207,12 @@ var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<section>\n  <h2>' +
-((__t = ( texts.a.h )) == null ? '' : __t) +
+((__t = ( texts.howto.h )) == null ? '' : __t) +
 '</h2>\n  <div class="texts">' +
-((__t = ( texts.a.c )) == null ? '' : __t) +
+((__t = ( texts.howto.c )) == null ? '' : __t) +
 '</div>\n</section>\n<section>\n  <h2>' +
-((__t = ( texts.b.h )) == null ? '' : __t) +
-'</h2>\n\n  <ul class="b-category-list">\n    ';
+((__t = ( texts.indexes.h )) == null ? '' : __t) +
+'</h2>\n  <ul class="b-category-list">\n    ';
  _.forEach(categories, function(category) { ;
 __p += '<!--\n    --><li><a href="#" data-ctg-key="' +
 ((__t = ( category.key )) == null ? '' : __t) +
@@ -217,7 +221,7 @@ __p += '<!--\n    --><li><a href="#" data-ctg-key="' +
 '</a></li><!--\n    -->';
  }) ;
 __p += '\n  </ul>\n</section>\n<section>\n  <h2>' +
-((__t = ( texts.c.h )) == null ? '' : __t) +
+((__t = ( texts.list.h )) == null ? '' : __t) +
 '</h2>\n  <a href="#" class="b-anchor-btn js-go-to m-no-margin" data-href="/list">' +
 ((__t = ( titles.list )) == null ? '' : __t) +
 '</a>\n</section>\n\n<a href="#" class="b-anchor-btn m-btn-sub js-go-to" data-href="/about">' +

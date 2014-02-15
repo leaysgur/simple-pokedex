@@ -1,10 +1,9 @@
 <section>
-  <h2><%= texts.a.h %></h2>
-  <div class="texts"><%= texts.a.c %></div>
+  <h2><%= texts.howto.h %></h2>
+  <div class="texts"><%= texts.howto.c %></div>
 </section>
 <section>
-  <h2><%= texts.b.h %></h2>
-
+  <h2><%= texts.indexes.h %></h2>
   <ul class="b-category-list">
     <% _.forEach(categories, function(category) { %><!--
     --><li><a href="#" data-ctg-key="<%= category.key %>" class="js-ctg-btn b-anchor-btn"><%= category.label %></a></li><!--
@@ -12,7 +11,7 @@
   </ul>
 </section>
 <section>
-  <h2><%= texts.c.h %></h2>
+  <h2><%= texts.list.h %></h2>
   <a href="#" class="b-anchor-btn js-go-to m-no-margin" data-href="/list"><%= titles.list %></a>
 </section>
 

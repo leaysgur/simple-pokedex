@@ -11,6 +11,8 @@ define([
 ) {
   'use strict';
 
+  var storageKey = conf.storageKey;
+
   var AboutView = Backbone.View.extend({
     initialize: function() {
       util.l('AboutView init');
@@ -33,7 +35,16 @@ define([
       return that;
     },
     events: {
-      'click .js-back-to': util.backTo
+      'click .js-back-to': util.backTo,
+      'click #js-clear-storage': 'clearStorage'
+    },
+    clearStorage: function(e) {
+      e.preventDefault();
+      if (util.isLocalStroageEnable()) {
+        localStorage.removeItem(storageKey);
+      }
+      alert(conf.texts.misc.clearStorage);
+      location.href = '/';
     }
   });
 

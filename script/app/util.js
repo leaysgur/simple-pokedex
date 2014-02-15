@@ -61,7 +61,17 @@ define('util', ['conf'], function (conf) {
           }, 100);
         }
       };
-    }())
+    }()),
+    isLocalStroageEnable: function () {
+      var chk = 'simplePokedex';
+      try {
+        localStorage.setItem(chk, chk);
+        localStorage.removeItem(chk);
+        return true;
+      } catch(e) {
+        return false;
+      }
+    }
   };
 
   instance = util;

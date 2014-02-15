@@ -79,26 +79,33 @@ define('conf', ['jquery'], function ($) {
         about: 'このサイトについて'
       },
       texts: {
+        misc: {
+          clearStorage: '端末に保存されたデータを削除し、\n最新のデータを取得しています...。\n更新後は、ページを自動的に再読み込みします。'
+        },
         index: {
-          a: {
+          howto: {
             h: 'つかいかた',
             c: '目の前にいるポケモンのことが知りたい？<br>索引から調べたいポケモンの頭文字を選ぶか、全ポケモン一覧から調べよう！'
           },
-          b: { h: 'さくいん' },
-          c: { h: 'いちらん' }
+          indexes: { h: 'さくいん' },
+          list: { h: 'いちらん' }
         },
         about: {
-          a: {
+          desc: {
             h: 'はじめに',
             c: '「Simple Pokédex」は、ポケモンのWiFi対戦中「・・・コイツどんなポケモンやっけ？」ってなったときに、サクッと見れるシンプルなポケモン図鑑です。<br>そのため、データは最低限必要なものだけに絞ってあります。<br>覚えるわざをきっちり見たいとか、努力値振りまで見極めて云々・・は、<a href="http://www57.atwiki.jp/pokemon6th/m/" target="_blank" class="anchor-txt">対戦考察まとめwiki</a>とかへどうぞ。'
           },
-          b: {
+          data: {
             h: 'データについて',
             c: '本サイトで確認できる各データは、最新作である「X・Y(いわゆる第六世代)」のものです。<br>今作で種族値が変更になったポケモンや、特性に変更があったものも反映してあります。'
           },
-          c: {
+          feature: {
+            h: '実装について',
+            c: 'このサイトは、はじめてサイトを訪れた時にだけ通信が発生し、以降はネットワークがつながってないところでも使えるような仕組みを使っています。<br>ただその利点とひきかえに、サーバー側のデータが更新されていても、手元のデータが更新されないケースがありえます。<br>そういう場合は、<a href="#" class="anchor-txt" id="js-clear-storage">このリンク</a>を使ってください。'
+          },
+          contact: {
             h: '不具合・ご要望あれば',
-            c: '「○○のデータが間違ってる・・」や、「こういう機能ほしい！」というものがあれば、<a href="https://twitter.com/leader22" target="_blank" class="anchor-txt">@leader22</a>までご報告いただけると嬉しいです。'
+            c: '「○○のデータが間違ってる・・」や、「こういう機能ほしい！」というものがあれば、<a href="https://twitter.com/leader22" target="_blank" class="anchor-txt">@leader22</a>までご報告いただけると嬉しいです。<br>単なる感想とかでもうぇるかむですので！'
           }
         }
       }
@@ -184,26 +191,33 @@ define('conf', ['jquery'], function ($) {
         about: 'About this site'
       },
       texts: {
+        misc: {
+          clearStorage: 'Clear and fetch the latest data...\nAfter this, page will automatically reload.'
+        },
         index: {
-          a: {
+          howto: {
             h: 'How to use',
             c: 'Select name from indexes, or check all Pokémon list!'
           },
-          b: { h: 'Indexes' },
-          c: { h: 'List' }
+          indexes: { h: 'Indexes' },
+          list: { h: 'List' }
         },
         about: {
-          a: {
+          desc: {
             h: 'Welcome',
             c: '"Simple Pokédex", according to the name, it is a "simple" Pokédex.'
           },
-          b: {
+          data: {
             h: 'Data',
             c: 'Data on this site is compatible with the latest version "X・Y".'
           },
-          c: {
+          feature: {
+            h: 'Feature of this site',
+            c: 'This site saves some data to your device for the first time.<br>So after this, you do not need communicate with server.<br>Use <a href="#" class="anchor-txt" id="js-clear-storage">this link</a> to clear your local data and fetch latest data.'
+          },
+          contact: {
             h: 'Contact',
-            c: 'Mention me on <a href="https://twitter.com/leader22" target="_blank" class="anchor-txt">@leader22</a>. Thanks :D'
+            c: 'Mention me on Twitter <a href="https://twitter.com/leader22" target="_blank" class="anchor-txt">@leader22</a>. Thanks :D'
           }
         }
       }
