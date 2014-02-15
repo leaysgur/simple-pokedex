@@ -1,0 +1,98 @@
+<section class="b-monster-index-wrap box">
+  <div class="e-monster-icon m-icon-id-<%= _id %>"></div>
+  <div class="e-monster-index flex">
+    <h2><%= name %></h2>
+    <%= words.nationalPokedex %>No.<%= nationalPokedexNumber %>
+  </div>
+</section>
+
+<section>
+  <h2><%= words.baseStats.title %></h2>
+  <ul class="b-base-stats">
+    <li><div style="width: <%= baseStatsRatio.hp %>%" data-label="<%= words.baseStats.hp %>: <%= baseStats.hp %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.attack %>%" data-label="<%= words.baseStats.attack %>: <%= baseStats.attack %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.defense %>%" data-label="<%= words.baseStats.defense %>: <%= baseStats.defense %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.specialAttack %>%" data-label="<%= words.baseStats.specialAttack %>: <%= baseStats.specialAttack %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.specialDefense %>%" data-label="<%= words.baseStats.specialDefense %>: <%= baseStats.specialDefense %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.speed %>%" data-label="<%= words.baseStats.speed %>: <%= baseStats.speed %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.total %>%" data-label="<%= words.baseStats.total %>: <%= baseStats.total %>"></div></li>
+  </ul>
+</section>
+
+<section>
+  <h2><%= words.type %></h2>
+  <% _.forEach(types, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
+</section>
+
+<section>
+  <h2><%= words.typeChart %></h2>
+  <ul class="b-type-charts">
+    <% if (typesChartStr.efx400.length) { %>
+    <li class="box">
+      <div class="e-label">x 4</div>
+      <div class="flex">
+        <% _.forEach(typesChartStr.efx400, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
+      </div>
+    </li>
+    <% } %>
+    <% if (typesChartStr.efx200.length) { %>
+    <li class="box">
+      <div class="e-label">x 2</div>
+      <div class="flex">
+        <% _.forEach(typesChartStr.efx200, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
+      </div>
+    </li>
+    <% } %>
+    <% if (typesChartStr.efx50.length) { %>
+    <li class="box">
+      <div class="e-label m-small">x 1/2</div>
+      <div class="flex">
+        <% _.forEach(typesChartStr.efx50, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
+      </div>
+    </li>
+    <% } %>
+    <% if (typesChartStr.efx25.length) { %>
+    <li class="box">
+      <div class="e-label m-small">x 1/4</div>
+      <div class="flex">
+        <% _.forEach(typesChartStr.efx25, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
+      </div>
+    </li>
+    <% } %>
+    <% if (typesChartStr.efx0.length) { %>
+    <li class="box">
+      <div class="e-label">x 0</div>
+      <div class="flex">
+        <% _.forEach(typesChartStr.efx0, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
+      </div>
+    </li>
+    <% } %>
+  </ul>
+</section>
+
+<section>
+  <h2><%= words.abilities.normal %></h2>
+  <% _.forEach(abilities.normal, function(abilitiy) { %>
+  <h3 class="js-toggle-trigger"><%= abilitiy.name %></h3>
+  <div class="texts"><%= abilitiy.desc %></div>
+  <% }) %>
+</section>
+
+<% if (abilities.hidden) { %>
+<section>
+  <h2><%= words.abilities.hidden %></h2>
+  <% _.forEach(abilities.hidden, function(abilitiy) { %>
+  <h3 class="js-toggle-trigger"><%= abilitiy.name %></h3>
+  <div class="texts"><%= abilitiy.desc %></div>
+  <% }) %>
+</section>
+<% } %>
+
+
+<section>
+  <h2><%= words.misc %></h2>
+  <div class="texts"><%= words.height %>: <%= heightStr %> / <%= words.weight %>: <%= weightStr %></div>
+</section>
+
+<a href="#" class="js-back-to b-anchor-btn"><%= titles.list %></a>
+<a href="#" class="js-go-to b-anchor-btn" data-href="/"><%= titles.index %></a>

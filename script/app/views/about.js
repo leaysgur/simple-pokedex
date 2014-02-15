@@ -1,10 +1,12 @@
 define([
   'util',
   'conf',
+  'templates',
   'backbone'
 ], function (
   util,
   conf,
+  JST,
   Backbone
 ) {
   'use strict';
@@ -14,7 +16,7 @@ define([
       util.l('AboutView init');
       this.render();
     },
-    template: _.template($('#js-tmpl-about').html()),
+    template: JST['about'],
     render: function() {
       var that = this;
       util.l('AboutView render', that);

@@ -1,10 +1,12 @@
 define([
   'util',
   'conf',
+  'templates',
   'backbone'
 ], function (
   util,
   conf,
+  JST,
   Backbone
 ) {
   'use strict';
@@ -16,7 +18,7 @@ define([
       this.cid = o.cid;
       this.render();
     },
-    template: _.template($('#js-tmpl-detail').html()),
+    template: JST['detail'],
     render: function() {
       util.l('DetailView render', this);
 

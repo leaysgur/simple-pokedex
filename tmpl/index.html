@@ -1,0 +1,19 @@
+<section>
+  <h2><%= texts.a.h %></h2>
+  <div class="texts"><%= texts.a.c %></div>
+</section>
+<section>
+  <h2><%= texts.b.h %></h2>
+
+  <ul class="b-category-list">
+    <% _.forEach(categories, function(category) { %><!--
+    --><li><a href="#" data-ctg-key="<%= category.key %>" class="js-ctg-btn b-anchor-btn"><%= category.label %></a></li><!--
+    --><% }) %>
+  </ul>
+</section>
+<section>
+  <h2><%= texts.c.h %></h2>
+  <a href="#" class="b-anchor-btn js-go-to m-no-margin" data-href="/list"><%= titles.list %></a>
+</section>
+
+<a href="#" class="b-anchor-btn m-btn-sub js-go-to" data-href="/about"><%= titles.about %></a>

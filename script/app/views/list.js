@@ -1,10 +1,12 @@
 define([
   'util',
   'conf',
+  'templates',
   'backbone'
 ], function (
   util,
   conf,
+  JST,
   Backbone
 ) {
   'use strict';
@@ -15,7 +17,7 @@ define([
       util.l('ListView init with option ->', this.opt);
       this.render();
     },
-    template: _.template($('#js-tmpl-list').html()),
+    template: JST['list'],
     render: function() {
       var that = this;
       util.l('ListView render', that);

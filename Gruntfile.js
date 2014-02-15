@@ -2,17 +2,15 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    handlebars: {
-      dist: {
+    jst: {
+      compile: {
         options: {
-          namespace: "JST",
-          wrapped: "true"
+          processName: function(path) {
+            return path.split('/').pop().split('.html').shift();
+          }
         },
         files: {
-          "templates.js": [
-            "./fileA.tmpl",
-            "./fileB.tmpl"
-          ]
+          './script/app/tmpl/templates.js': ['./tmpl/*.html']
         }
       }
     },
@@ -25,11 +23,11 @@ module.exports = function(grunt) {
   });
 
   // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-handlebars');
+  // grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jst');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
-  grunt.registerTask("default", ['handlebars']);
+  // grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['jst']);
 
 };

@@ -1,10 +1,12 @@
 define([
   'util',
   'conf',
+  'templates',
   'backbone'
 ], function (
   util,
   conf,
+  JST,
   Backbone
 ) {
   'use strict';
@@ -14,7 +16,7 @@ define([
       util.l('IndexView init');
       this.render();
     },
-    template: _.template($('#js-tmpl-index').html()),
+    template: JST['index'],
     render: function() {
       var that = this;
       util.l('IndexView render', that);
