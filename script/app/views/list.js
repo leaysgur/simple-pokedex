@@ -15,7 +15,7 @@ define([
       util.l('ListView init with option ->', this.opt);
       this.render();
     },
-    template: Handlebars.compile($('#js-tmpl-list').html()),
+    template: _.template($('#js-tmpl-list').html()),
     render: function() {
       var that = this;
       util.l('ListView render', that);

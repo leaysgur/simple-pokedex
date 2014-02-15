@@ -27,151 +27,151 @@
 
 <script id="js-tmpl-index" type="text/x-handlebars-tmpl">
 <section>
-  <h2>{{texts.1.h}}</h2>
-  <div class="texts">{{{texts.1.c}}}</div>
+  <h2><%= texts.a.h %></h2>
+  <div class="texts"><%= texts.a.c %></div>
 </section>
 <section>
-  <h2>{{texts.2.h}}</h2>
+  <h2><%= texts.b.h %></h2>
 
   <ul class="b-category-list">
-    {{#each categories}}<!--
-    --><li><a href="#" data-ctg-key="{{this.key}}" class="js-ctg-btn b-anchor-btn">{{this.label}}</a></li><!--
-    -->{{/each}}
+    <% _.forEach(categories, function(category) { %><!--
+    --><li><a href="#" data-ctg-key="<%= category.key %>" class="js-ctg-btn b-anchor-btn"><%= category.label %></a></li><!--
+    --><% }) %>
   </ul>
 </section>
 <section>
-  <h2>{{texts.3.h}}</h2>
-  <a href="#" class="b-anchor-btn js-go-to m-no-margin" data-href="/list">{{titles.list}}</a>
+  <h2><%= texts.c.h %></h2>
+  <a href="#" class="b-anchor-btn js-go-to m-no-margin" data-href="/list"><%= titles.list %></a>
 </section>
 
-<a href="#" class="b-anchor-btn m-btn-sub js-go-to" data-href="/about">{{titles.about}}</a>
+<a href="#" class="b-anchor-btn m-btn-sub js-go-to" data-href="/about"><%= titles.about %></a>
 </script>
 
 <script id="js-tmpl-about" type="text/x-handlebars-tmpl">
 <section>
-  <h2>{{texts.1.h}}</h2>
-  <div class="texts">{{{texts.1.c}}}</div>
+  <h2><%= texts.a.h %></h2>
+  <div class="texts"><%= texts.a.c %></div>
 </section>
 <section>
-  <h2>{{texts.2.h}}</h2>
-  <div class="texts">{{{texts.2.c}}}</div>
+  <h2><%= texts.b.h %></h2>
+  <div class="texts"><%= texts.b.c %></div>
 </section>
 <section>
-  <h2>{{texts.3.h}}</h2>
-  <div class="texts">{{{texts.3.c}}}</div>
+  <h2><%= texts.c.h %></h2>
+  <div class="texts"><%= texts.c.c %></div>
 </section>
 
-<a href="#" class="b-anchor-btn js-back-to">{{titles.index}}</a>
+<a href="#" class="b-anchor-btn js-back-to"><%= titles.index %></a>
 </script>
 
 <script id="js-tmpl-list" type="text/x-handlebars-tmpl">
 <ul class="b-monster-list">
-  {{#each monsters}}
-  <li><a data-cid="{{this.cid}}" class="m-icon-id-{{this.id}} js-show-detail">{{this.name}}</a></li>
-  {{/each}}
+  <% _.forEach(monsters, function(monster) { %>
+  <li><a data-cid="<%= monster.cid %>" class="m-icon-id-<%= monster.id %> js-show-detail"><%= monster.name %></a></li>
+  <% }) %>
 </ul>
-<a href="#" class="js-go-to b-anchor-btn" data-href="/">{{titles.index}}</a>
+<a href="#" class="js-go-to b-anchor-btn" data-href="/"><%= titles.index %></a>
 </script>
 
 <script id="js-tmpl-detail" type="text/x-handlebars-tmpl">
 <section class="b-monster-index-wrap box">
-  <div class="e-monster-icon m-icon-id-{{_id}}"></div>
+  <div class="e-monster-icon m-icon-id-<%= _id %>"></div>
   <div class="e-monster-index flex">
-    <h2>{{name}}</h2>
-    {{words.nationalPokedex}}No.{{nationalPokedexNumber}}
+    <h2><%= name %></h2>
+    <%= words.nationalPokedex %>No.<%= nationalPokedexNumber %>
   </div>
 </section>
 
 <section>
-  <h2>{{words.baseStats.title}}</h2>
+  <h2><%= words.baseStats.title %></h2>
   <ul class="b-base-stats">
-    <li><div style="width: {{baseStatsRatio.hp}}%" data-label="{{words.baseStats.hp}}: {{baseStats.hp}}"></div></li>
-    <li><div style="width: {{baseStatsRatio.attack}}%" data-label="{{words.baseStats.attack}}: {{baseStats.attack}}"></div></li>
-    <li><div style="width: {{baseStatsRatio.defense}}%" data-label="{{words.baseStats.defense}}: {{baseStats.defense}}"></div></li>
-    <li><div style="width: {{baseStatsRatio.specialAttack}}%" data-label="{{words.baseStats.specialAttack}}: {{baseStats.specialAttack}}"></div></li>
-    <li><div style="width: {{baseStatsRatio.specialDefense}}%" data-label="{{words.baseStats.specialDefense}}: {{baseStats.specialDefense}}"></div></li>
-    <li><div style="width: {{baseStatsRatio.speed}}%" data-label="{{words.baseStats.speed}}: {{baseStats.speed}}"></div></li>
-    <li><div style="width: {{baseStatsRatio.total}}%" data-label="{{words.baseStats.total}}: {{baseStats.total}}"></div></li>
+    <li><div style="width: <%= baseStatsRatio.hp %>%" data-label="<%= words.baseStats.hp %>: <%= baseStats.hp %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.attack %>%" data-label="<%= words.baseStats.attack %>: <%= baseStats.attack %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.defense %>%" data-label="<%= words.baseStats.defense %>: <%= baseStats.defense %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.specialAttack %>%" data-label="<%= words.baseStats.specialAttack %>: <%= baseStats.specialAttack %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.specialDefense %>%" data-label="<%= words.baseStats.specialDefense %>: <%= baseStats.specialDefense %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.speed %>%" data-label="<%= words.baseStats.speed %>: <%= baseStats.speed %>"></div></li>
+    <li><div style="width: <%= baseStatsRatio.total %>%" data-label="<%= words.baseStats.total %>: <%= baseStats.total %>"></div></li>
   </ul>
 </section>
 
 <section>
-  <h2>{{words.type}}</h2>
-  {{#each types}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+  <h2><%= words.type %></h2>
+  <% _.forEach(types, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
 </section>
 
 <section>
-  <h2>{{words.typeChart}}</h2>
+  <h2><%= words.typeChart %></h2>
   <ul class="b-type-charts">
-    {{#if typesChartStr.efx400}}
+    <% if (typesChartStr.efx400.length) { %>
     <li class="box">
       <div class="e-label">x 4</div>
       <div class="flex">
-        {{#each typesChartStr.efx400}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+        <% _.forEach(typesChartStr.efx400, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
       </div>
     </li>
-    {{/if}}
-    {{#if typesChartStr.efx200}}
+    <% } %>
+    <% if (typesChartStr.efx200.length) { %>
     <li class="box">
       <div class="e-label">x 2</div>
       <div class="flex">
-        {{#each typesChartStr.efx200}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+        <% _.forEach(typesChartStr.efx200, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
       </div>
     </li>
-    {{/if}}
-    {{#if typesChartStr.efx50}}
+    <% } %>
+    <% if (typesChartStr.efx50.length) { %>
     <li class="box">
       <div class="e-label m-small">x 1/2</div>
       <div class="flex">
-        {{#each typesChartStr.efx50}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+        <% _.forEach(typesChartStr.efx50, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
       </div>
     </li>
-    {{/if}}
-    {{#if typesChartStr.efx25}}
+    <% } %>
+    <% if (typesChartStr.efx25.length) { %>
     <li class="box">
       <div class="e-label m-small">x 1/4</div>
       <div class="flex">
-        {{#each typesChartStr.efx25}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+        <% _.forEach(typesChartStr.efx25, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
       </div>
     </li>
-    {{/if}}
-    {{#if typesChartStr.efx0}}
+    <% } %>
+    <% if (typesChartStr.efx0.length) { %>
     <li class="box">
       <div class="e-label">x 0</div>
       <div class="flex">
-        {{#each typesChartStr.efx0}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+        <% _.forEach(typesChartStr.efx0, function(type) { %><span class="b-monster-type m-type-<%= type.type %>"><%= type.typeStr %></span><% }) %>
       </div>
     </li>
-    {{/if}}
+    <% } %>
   </ul>
 </section>
 
 <section>
-  <h2>{{words.abilities.normal}}</h2>
-  {{#each abilities.normal}}
-  <h3 class="js-toggle-trigger">{{this.name}}</h3>
-  <div class="texts">{{this.desc}}</div>
-  {{/each}}
+  <h2><%= words.abilities.normal %></h2>
+  <% _.forEach(abilities.normal, function(abilitiy) { %>
+  <h3 class="js-toggle-trigger"><%= abilitiy.name %></h3>
+  <div class="texts"><%= abilitiy.desc %></div>
+  <% }) %>
 </section>
 
-{{#if abilities.hidden}}
+<% if (abilities.hidden) { %>
 <section>
-  <h2>{{words.abilities.hidden}}</h2>
-  {{#each abilities.hidden}}
-  <h3 class="js-toggle-trigger">{{this.name}}</h3>
-  <div class="texts">{{this.desc}}</div>
-  {{/each}}
+  <h2><%= words.abilities.hidden %></h2>
+  <% _.forEach(abilities.hidden, function(abilitiy) { %>
+  <h3 class="js-toggle-trigger"><%= abilitiy.name %></h3>
+  <div class="texts"><%= abilitiy.desc %></div>
+  <% }) %>
 </section>
-{{/if}}
+<% } %>
 
 
 <section>
-  <h2>{{words.misc}}</h2>
-  <div class="texts">{{words.height}}: {{heightStr}} / {{words.weight}}: {{weightStr}}</div>
+  <h2><%= words.misc %></h2>
+  <div class="texts"><%= words.height %>: <%= heightStr %> / <%= words.weight %>: <%= weightStr %></div>
 </section>
 
-<a href="#" class="js-back-to b-anchor-btn">{{titles.list}}</a>
-<a href="#" class="js-go-to b-anchor-btn" data-href="/">{{titles.index}}</a>
+<a href="#" class="js-back-to b-anchor-btn"><%= titles.list %></a>
+<a href="#" class="js-go-to b-anchor-btn" data-href="/"><%= titles.index %></a>
 </script>
 
 <script src="/script/vendor/require.js"></script>

@@ -16,7 +16,7 @@ define([
       this.cid = o.cid;
       this.render();
     },
-    template: Handlebars.compile($('#js-tmpl-detail').html()),
+    template: _.template($('#js-tmpl-detail').html()),
     render: function() {
       util.l('DetailView render', this);
 

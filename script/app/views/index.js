@@ -14,7 +14,7 @@ define([
       util.l('IndexView init');
       this.render();
     },
-    template: Handlebars.compile($('#js-tmpl-index').html()),
+    template: _.template($('#js-tmpl-index').html()),
     render: function() {
       var that = this;
       util.l('IndexView render', that);
@@ -22,8 +22,7 @@ define([
       var data = {
         titles: conf.titles,
         texts: conf.texts.index,
-        categories: conf.categories,
-        id: 128
+        categories: conf.categories
       };
 
       that.$el.html(that.template(data));

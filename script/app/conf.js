@@ -79,23 +79,23 @@ define('conf', ['jquery'], function ($) {
       },
       texts: {
         index: {
-          1: {
+          a: {
             h: 'つかいかた',
             c: '目の前にいるポケモンのことが知りたい？<br>索引から調べたいポケモンの頭文字を選ぶか、全ポケモン一覧から調べよう！'
           },
-          2: { h: 'さくいん' },
-          3: { h: 'いちらん' }
+          b: { h: 'さくいん' },
+          c: { h: 'いちらん' }
         },
         about: {
-          1: {
+          a: {
             h: 'はじめに',
             c: '「Simple Pokédex」は、ポケモンのWiFi対戦中「・・・コイツどんなポケモンやっけ？」ってなったときに、サクッと見れるシンプルなポケモン図鑑です。<br>そのため、データは最低限必要なものだけに絞ってあります。<br>覚えるわざをきっちり見たいとか、努力値振りまで見極めて云々・・は、<a href="http://www57.atwiki.jp/pokemon6th/m/" target="_blank" class="anchor-txt">対戦考察まとめwiki</a>とかへどうぞ。'
           },
-          2: {
+          b: {
             h: 'データについて',
             c: '本サイトで確認できる各データは、最新作である「X・Y(いわゆる第六世代)」のものです。<br>今作で種族値が変更になったポケモンや、特性に変更があったものも反映してあります。'
           },
-          3: {
+          c: {
             h: '不具合・ご要望あれば',
             c: '「○○のデータが間違ってる・・」や、「こういう機能ほしい！」というものがあれば、<a href="https://twitter.com/leader22" target="_blank" class="anchor-txt">@leader22</a>までご報告いただけると嬉しいです。'
           }
@@ -184,23 +184,23 @@ define('conf', ['jquery'], function ($) {
       },
       texts: {
         index: {
-          1: {
+          a: {
             h: 'How to use',
             c: 'Select name from indexes, or check all Pokémon list!'
           },
-          2: { h: 'Indexes' },
-          3: { h: 'List' }
+          b: { h: 'Indexes' },
+          c: { h: 'List' }
         },
         about: {
-          1: {
+          a: {
             h: 'Welcome',
             c: '"Simple Pokédex", according to the name, it is a "simple" Pokédex.'
           },
-          2: {
+          b: {
             h: 'Data',
             c: 'Data on this site is compatible with the latest version "X・Y".'
           },
-          3: {
+          c: {
             h: 'Contact',
             c: 'Mention me on <a href="https://twitter.com/leader22" target="_blank" class="anchor-txt">@leader22</a>. Thanks :D'
           }

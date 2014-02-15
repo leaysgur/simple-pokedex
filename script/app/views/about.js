@@ -14,7 +14,7 @@ define([
       util.l('AboutView init');
       this.render();
     },
-    template: Handlebars.compile($('#js-tmpl-about').html()),
+    template: _.template($('#js-tmpl-about').html()),
     render: function() {
       var that = this;
       util.l('AboutView render', that);

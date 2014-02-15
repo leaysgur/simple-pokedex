@@ -3,13 +3,9 @@ require.config({
   paths: {
     underscore: '../vendor/underscore',
     jquery:     '../vendor/jquery',
-    backbone:   '../vendor/backbone',
-    handlebars: '../vendor/handlebars'
+    backbone:   '../vendor/backbone'
   },
   shim: {
-    handlebars: {
-      exports: 'Handlebars'
-    },
     jquery: {
       exports: ['$', 'jQuery']
     },
