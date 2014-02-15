@@ -101,11 +101,9 @@
     "_id": 4,
     "abilities": {
       "normal": [
-        "overgrow"
+        "thick-fat"
       ],
-      "hidden": [
-        "chlorophyll"
-      ]
+      "hidden": []
     },
     "weight": "342.8",
     "_key": "mega-venusaur",
@@ -343,11 +341,9 @@
     "_id": 13,
     "abilities": {
       "normal": [
-        "torrent"
+        "mega-launcher"
       ],
-      "hidden": [
-        "rain-dish"
-      ]
+      "hidden": []
     },
     "weight": "222.9",
     "_key": "mega-blastoise",
@@ -1938,12 +1934,9 @@
     "_id": 70,
     "abilities": {
       "normal": [
-        "synchronize",
-        "inner-focus"
+        "trace"
       ],
-      "hidden": [
-        "magic-guard"
-      ]
+      "hidden": []
     },
     "weight": "105.8",
     "_key": "mega-alakazam",
@@ -2787,7 +2780,7 @@
     "_id": 100,
     "abilities": {
       "normal": [
-        "levitate"
+        "shadow-tag"
       ],
       "hidden": []
     },
@@ -3397,12 +3390,9 @@
     "_id": 122,
     "abilities": {
       "normal": [
-        "early-bird",
-        "scrappy"
+        "parental-bond"
       ],
-      "hidden": [
-        "inner-focus"
-      ]
+      "hidden": []
     },
     "weight": "220.5",
     "_key": "mega-kangaskhan",
@@ -3764,12 +3754,9 @@
     "_id": 135,
     "abilities": {
       "normal": [
-        "hyper-cutter",
-        "mold-breaker"
+        "aerilate"
       ],
-      "hidden": [
-        "moxie"
-      ]
+      "hidden": []
     },
     "weight": "130.1",
     "_key": "mega-pinsir",
@@ -3876,11 +3863,9 @@
     "_id": 139,
     "abilities": {
       "normal": [
-        "intimidate"
+        "mold-breaker"
       ],
-      "hidden": [
-        "moxie"
-      ]
+      "hidden": []
     },
     "weight": "672.4",
     "_key": "mega-gyarados",
@@ -4242,12 +4227,9 @@
     "_id": 152,
     "abilities": {
       "normal": [
-        "rock-head",
-        "pressure"
+        "tough-claws"
       ],
-      "hidden": [
-        "unnerve"
-      ]
+      "hidden": []
     },
     "weight": "174.2",
     "_key": "mega-aerodactyl",
@@ -4492,11 +4474,9 @@
     "_id": 161,
     "abilities": {
       "normal": [
-        "pressure"
+        "steadfast"
       ],
-      "hidden": [
-        "unnerve"
-      ]
+      "hidden": []
     },
     "weight": "280",
     "_key": "mega-mewtwo-x",
@@ -4519,11 +4499,9 @@
     "_id": 162,
     "abilities": {
       "normal": [
-        "pressure"
+        "insomnia"
       ],
-      "hidden": [
-        "unnerve"
-      ]
+      "hidden": []
     },
     "weight": "72.8",
     "_key": "mega-mewtwo-y",
@@ -5411,11 +5389,9 @@
     "_id": 194,
     "abilities": {
       "normal": [
-        "static"
+        "mold-breaker"
       ],
-      "hidden": [
-        "plus"
-      ]
+      "hidden": []
     },
     "weight": "135.6",
     "_key": "mega-ampharos",
@@ -6311,12 +6287,9 @@
     "_id": 226,
     "abilities": {
       "normal": [
-        "swarm",
         "technician"
       ],
-      "hidden": [
-        "light-metal"
-      ]
+      "hidden": []
     },
     "weight": "275.6",
     "_key": "mega-scizor",
@@ -6398,12 +6371,9 @@
     "_id": 229,
     "abilities": {
       "normal": [
-        "swarm",
-        "guts"
+        "skill-link"
       ],
-      "hidden": [
-        "moxie"
-      ]
+      "hidden": []
     },
     "weight": "137.8",
     "_key": "mega-heracross",
@@ -6857,12 +6827,9 @@
     "_id": 245,
     "abilities": {
       "normal": [
-        "early-bird",
-        "flash-fire"
+        "solar-power"
       ],
-      "hidden": [
-        "unnerve"
-      ]
+      "hidden": []
     },
     "weight": "109.1",
     "_key": "mega-houndoom",
@@ -7413,9 +7380,7 @@
       "normal": [
         "sand-stream"
       ],
-      "hidden": [
-        "unnerve"
-      ]
+      "hidden": []
     },
     "weight": "562.2",
     "_key": "mega-tyranitar",
@@ -7685,11 +7650,9 @@
     "_id": 275,
     "abilities": {
       "normal": [
-        "blaze"
-      ],
-      "hidden": [
         "speed-boost"
-      ]
+      ],
+      "hidden": []
     },
     "weight": "114.6",
     "_key": "mega-blaziken",
@@ -8413,12 +8376,9 @@
     "_id": 301,
     "abilities": {
       "normal": [
-        "synchronize",
-        "trace"
+        "pixilate"
       ],
-      "hidden": [
-        "telepathy"
-      ]
+      "hidden": []
     },
     "weight": "106.7",
     "_key": "mega-gardevoir",
@@ -9020,12 +8980,9 @@
     "_id": 323,
     "abilities": {
       "normal": [
-        "hyper-cutter",
-        "intimidate"
+        "huge-power"
       ],
-      "hidden": [
-        "sheer-force"
-      ]
+      "hidden": []
     },
     "weight": "51.8",
     "_key": "mega-mawile",
@@ -9135,12 +9092,9 @@
     "_id": 327,
     "abilities": {
       "normal": [
-        "sturdy",
-        "rock-head"
+        "filter"
       ],
-      "hidden": [
-        "heavy-metal"
-      ]
+      "hidden": []
     },
     "weight": "870.8",
     "_key": "mega-aggron",
@@ -9222,9 +9176,7 @@
       "normal": [
         "pure-power"
       ],
-      "hidden": [
-        "telepathy"
-      ]
+      "hidden": []
     },
     "weight": "69.4",
     "_key": "mega-medicham",
@@ -9303,12 +9255,9 @@
     "_id": 333,
     "abilities": {
       "normal": [
-        "static",
-        "lightningrod"
+        "intimidate"
       ],
-      "hidden": [
-        "minus"
-      ]
+      "hidden": []
     },
     "weight": "97",
     "_key": "mega-manectric",
@@ -10546,12 +10495,9 @@
     "_id": 378,
     "abilities": {
       "normal": [
-        "insomnia",
-        "frisk"
+        "prankster"
       ],
-      "hidden": [
-        "cursed-body"
-      ]
+      "hidden": []
     },
     "weight": "28.7",
     "_key": "mega-banette",
@@ -10710,12 +10656,9 @@
     "_id": 384,
     "abilities": {
       "normal": [
-        "pressure",
-        "super-luck"
+        "magic-bounce"
       ],
-      "hidden": [
-        "justified"
-      ]
+      "hidden": []
     },
     "weight": "108",
     "_key": "mega-absol",
@@ -13244,11 +13187,9 @@
     "_id": 476,
     "abilities": {
       "normal": [
-        "sand-veil"
+        "sand-force"
       ],
-      "hidden": [
-        "rough-skin"
-      ]
+      "hidden": []
     },
     "weight": "209.4",
     "_key": "mega-garchomp",
@@ -13357,12 +13298,9 @@
     "_id": 480,
     "abilities": {
       "normal": [
-        "steadfast",
-        "inner-focus"
+        "adaptability"
       ],
-      "hidden": [
-        "justified"
-      ]
+      "hidden": []
     },
     "weight": "126.8",
     "_key": "mega-lucario",
@@ -13724,9 +13662,7 @@
       "normal": [
         "snow-warning"
       ],
-      "hidden": [
-        "soundproof"
-      ]
+      "hidden": []
     },
     "weight": "407.8",
     "_key": "mega-abomasnow",
