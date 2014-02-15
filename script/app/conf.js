@@ -7,6 +7,7 @@ define('conf', ['jquery'], function ($) {
   var lang = (/ja/.test(navigator.language)) ? 'ja' : 'en';
   var Conf = {
     lang: lang,
+    storageKey: 'pokedexAll',
     jsonPath: {
       base: '/data/monster.json',
       type: '/data/type.json'

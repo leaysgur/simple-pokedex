@@ -11,6 +11,9 @@ define([
 ) {
   'use strict';
 
+  var storageKey = conf.storageKey;
+  var jsonPath = conf.jsonPath;
+
   var MonsterCollection = Backbone.Collection.extend({
     model: MonsterModel,
     comparator: 'nationalPokedexNumber',
@@ -23,32 +26,61 @@ define([
 
       var d = $.Deferred();
 
+      // LocalStorage使える && データが既にある
+      if (isLocalStroageEnable() && storageKey in localStorage) {
+        // 予防線をはっておくのよ
+        try {
+          that.fetchFromLocalStorage(d);
+        } catch (e) {
+          that.fetchFromServer(d);
+        }
+      // LocalStorage使える && データまだない
+      // LocalStorage使えない
+      } else {
+        that.fetchFromServer(d);
+      }
+
+      return d.promise();
+    },
+    fetchFromLocalStorage: function(d) {
+      var that = this;
+
+      var fixedData = JSON.parse(localStorage.getItem(storageKey));
+
+      that.reset(fixedData);
+      d.resolve();
+    },
+    fetchFromServer: function(d) {
+      var that = this;
+
       $.when(
         // キャッシュOFFにしてるの忘れない
-        $.ajax({ url: conf.jsonPath.base, dataType: 'json', cache: false }),
-        $.ajax({ url: conf.jsonPath.type, dataType: 'json', cache: false }),
-        $.ajax({ url: conf.jsonPath.lang, dataType: 'json', cache: false })
+        $.ajax({ url: jsonPath.base, dataType: 'json', cache: false }),
+        $.ajax({ url: jsonPath.type, dataType: 'json', cache: false }),
+        $.ajax({ url: jsonPath.lang, dataType: 'json', cache: false })
       ).done(function(base, type, lang) {
         util.l('Ajax done', base, type, lang);
 
         var baseData = base[0], typeData = type[0], langData = lang[0];
         var fixedData = overrideBaseData(baseData, typeData, langData);
 
+        if (isLocalStroageEnable()) {
+          localStorage.removeItem(storageKey);
+          localStorage.setItem(storageKey, JSON.stringify(fixedData));
+        }
+
         that.reset(fixedData);
         d.resolve();
 
       }).fail(function(jqXHR, textStatus, errorThrown) {
-        util.l('Error', textStatus, errorThrown);
-        // エラーView.render(); みたいな
-
+        alert('えらー')
       });
 
-      return d.promise();
     }
   });
 
   /* Private */
-  var overrideBaseData = function(baseData, typeData, langData) {
+  function overrideBaseData(baseData, typeData, langData) {
     var fixedData = _.map(baseData, function(e) {
 
       // まずタイプ相性のデータを保持
@@ -81,6 +113,18 @@ define([
     langData = null;
     return fixedData;
   };
+
+  function isLocalStroageEnable() {
+    var chk = 'simplePokedex';
+    try {
+      localStorage.setItem(chk, chk);
+      localStorage.removeItem(chk);
+      return true;
+    } catch(e) {
+      return false;
+    }
+  }
+
 
   return MonsterCollection;
 
