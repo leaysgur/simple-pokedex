@@ -51,6 +51,7 @@ function(
          IDENT = 'index';
 
       that.onRoute(IDENT, function() {
+        util.scroller.store(0);
         new IndexView({
           el: that.$view[IDENT]
         });
@@ -94,6 +95,7 @@ function(
          IDENT = 'about';
 
       that.onRoute(IDENT, function() {
+        util.scroller.store(0);
         new AboutView({
           el: that.$view[IDENT]
         });
