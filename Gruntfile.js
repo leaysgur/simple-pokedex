@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
 
-  // Project configuration.
   grunt.initConfig({
     jst: {
       compile: {
@@ -14,20 +13,30 @@ module.exports = function(grunt) {
         }
       }
     },
-    uglify: {
-      build: {
-        src: 'src/*.js',
-        dest: 'dest/all.min.js'
+    requirejs: {
+      compile: {
+        options: {
+          baseUrl: './script/app',
+          mainConfigFile: './script/app/require_config.js',
+          name: 'main',
+          out: './script/build/main.js'
+        }
+      }
+    },
+    compass: {
+      dist: {
+        options: {
+          config: './config.rb'
+        }
       }
     }
+
   });
 
-  // Load the plugin that provides the "uglify" task.
-  // grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jst');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-compass');
 
-  // Default task(s).
-  // grunt.registerTask('default', ['uglify']);
-  grunt.registerTask('default', ['jst']);
+  grunt.registerTask('default', ['jst', 'requirejs', 'compass']);
 
 };
