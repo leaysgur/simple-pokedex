@@ -24,12 +24,8 @@ ul {
  * Modules
  ****************************************************/
 .anchor-txt {
-  color: $color2;
+  color: $color5;
   @include transition(color .5s ease);
-
-  &:hover {
-    color: $color5;
-  }
 }
 
 .anchor-btn {
@@ -41,6 +37,10 @@ ul {
   background-color: $color5;
   @include vJustify(#{sitePx(5)}px);
   @include border-radius(#{sitePx(1 / 4)}px);
+  
+  &.m-no-margin {
+    margin: 0;
+  }
   
   &.m-btn-sub {
     color: $color4;
@@ -88,6 +88,17 @@ ul {
 .l-view-content {
   padding: #{sitePx(4)}px 0;
   z-index: 1;
+
+  // このdivが各View
+  > div {
+    > section {
+      @extend %content-base;
+    }
+  
+    h2, h3, h4, h5, h6 {
+      color: $color4;
+    }
+  }
 }
 .l-view-footer {
   position: fixed;
@@ -100,6 +111,8 @@ ul {
   text-align: center;
   @include vJustify(#{sitePx(4)}px);
   font-size: .8rem;
+  
+  .anchor-txt { color: $color2; }
 }
 
 .l-loading-layer {
@@ -131,7 +144,6 @@ ul {
 // Index
 .l-category-list {
   text-align: center;
-  margin: #{sitePx(1) - sitePx(1 / 4)}px;
 
   > li {
     display: inline-block;
@@ -172,14 +184,6 @@ ul {
 
 // Detail
 .view-detail {
-  > section {
-    @extend %content-base;
-  }
-
-  h2, h3, h4, h5, h6 {
-    color: $color4;
-  }
-
   .monster-index-wrap {
     .monster-icon {
       width: #{sitePx(5)}px;
@@ -189,7 +193,6 @@ ul {
       &::before {
         @extend %monster-icon;
       }
-
     }
     .monster-index {
       @include vJustify(#{sitePx(5 / 2)}px);

@@ -28,7 +28,9 @@ define([
 
       var data = {
         titles: conf.titles,
-        categories: conf.categories
+        texts: conf.texts.index,
+        categories: conf.categories,
+        id: 128
       };
 
       that.$el.html(that.template(data));
@@ -37,7 +39,7 @@ define([
       return that;
     },
     events: {
-      'click .js-go-to': util.navigate,
+      'click .js-go-to': util.goTo,
       'click .js-ctg-btn': 'doCtgSearch'
     },
     doCtgSearch: function(e) {

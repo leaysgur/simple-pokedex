@@ -4,6 +4,7 @@ define([
   'backbone',
   'jquery',
   'views/index',
+  'views/about',
   'views/list',
   'views/detail',
   'collections/monster'
@@ -14,6 +15,7 @@ function(
   Backbone,
   $,
   IndexView,
+  AboutView,
   ListView,
   DetailView,
   MonsterCollection
@@ -83,12 +85,9 @@ function(
       util.l('Routing about');
 
       that.onRouteStart('about');
-/*
-      new IndexView({
-        el: '#js-view-index'
+      new AboutView({
+        el: '#js-view-about'
       });
-*/
-      util.title(conf.titles.about);
 
       that.onRouteEnd('about');
     },

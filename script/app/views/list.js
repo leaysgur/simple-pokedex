@@ -65,7 +65,7 @@ define([
       return that;
     },
     events: {
-      'click .js-go-to': util.navigate,
+      'click .js-go-to': util.goTo,
       'click .js-show-detail': 'showDetail'
     },
     showDetail: function(e) {

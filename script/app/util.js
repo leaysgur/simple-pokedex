@@ -21,7 +21,7 @@ define('util', ['conf'], function (conf) {
         return (i < args.length) ? args[i++] : '';
       });
     },
-    navigate: function(e) {
+    goTo: function(e) {
       e.preventDefault();
       var dest = $(e.target).data('href');
       Backbone.history.navigate(dest, {trigger: true});

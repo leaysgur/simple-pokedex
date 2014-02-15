@@ -14,14 +14,10 @@
 
   <div class="l-loading-layer" id="js-loading-layer"></div>
   <div class="l-view-content">
-    <div id="js-view-index" class="js-view-contents view-index">
-    </div>
+    <div id="js-view-index" class="js-view-contents view-index"></div>
+    <div id="js-view-about" class="js-view-contents view-about"></div>
     <div id="js-view-list" class="js-view-contents view-list"></div>
     <div id="js-view-detail" class="js-view-contents view-detail"></div>
-    <div id="js-view-about" class="js-view-contents view-about">
-      ベタ書きほげほげ
-    </div>
-
   </div>
 
   <footer class="l-view-footer">
@@ -30,16 +26,45 @@
 </div>
 
 <script id="js-tmpl-index" type="text/x-handlebars-tmpl">
-<ul class="l-category-list">
-  {{#each categories}}<!--
-  --><li><a href="#" data-ctg-key="{{this.key}}" class="js-ctg-btn anchor-btn">{{this.label}}</a></li><!--
-  -->{{/each}}
-</ul>
+<section>
+  <h2>{{texts.1.h}}</h2>
+  <div class="texts">{{{texts.1.c}}}</div>
+</section>
+<section>
+  <h2>{{texts.2.h}}</h2>
 
-<a href="#" class="anchor-btn js-go-to" data-href="/list">{{titles.list}}</a>
+  <ul class="l-category-list">
+    {{#each categories}}<!--
+    --><li><a href="#" data-ctg-key="{{this.key}}" class="js-ctg-btn anchor-btn">{{this.label}}</a></li><!--
+    -->{{/each}}
+  </ul>
+</section>
+<section>
+  <h2>{{texts.3.h}}</h2>
+  <a href="#" class="anchor-btn js-go-to m-no-margin" data-href="/list">{{titles.list}}</a>
+</section>
+
 <a href="#" class="anchor-btn m-btn-sub js-go-to" data-href="/about">{{titles.about}}</a>
+
+<div class="monster-icon icon-id-{{id}}"></div>
 </script>
 
+<script id="js-tmpl-about" type="text/x-handlebars-tmpl">
+<section>
+  <h2>{{texts.1.h}}</h2>
+  <div class="texts">{{{texts.1.c}}}</div>
+</section>
+<section>
+  <h2>{{texts.2.h}}</h2>
+  <div class="texts">{{{texts.2.c}}}</div>
+</section>
+<section>
+  <h2>{{texts.3.h}}</h2>
+  <div class="texts">{{{texts.3.c}}}</div>
+</section>
+
+<a href="#" class="anchor-btn js-back-to">{{titles.index}}</a>
+</script>
 
 <script id="js-tmpl-list" type="text/x-handlebars-tmpl">
 <ul class="monster-list">
