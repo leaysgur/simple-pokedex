@@ -1,0 +1,30 @@
+{
+  "name": "simple-pokedex",
+  "version": "1.0.0",
+  "description": "Just, simple pokedex prj for me!",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-contrib-handlebars": "~0.6.1",
+    "grunt-contrib-jst": "~0.5.1",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "install": "~0.1.7",
+    "grunt-este-watch": "~0.1.15",
+    "npm": "~1.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leader22/simple-pokedex.git"
+  },
+  "author": "@leader22",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/leader22/simple-pokedex/issues"
+  },
+  "homepage": "https://github.com/leader22/simple-pokedex"
+}
