@@ -70,6 +70,9 @@ body {
 
   // このdivが各View
   > div {
+    &.is-invisible {
+      display: none;
+    }
     > section {
       @extend %content-base;
     }

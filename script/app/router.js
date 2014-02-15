@@ -29,6 +29,17 @@ function(
 
       this.collection = new MonsterCollection();
       this.collectionFetch = this.collection.fetch();
+
+      var $views = $('.js-view-contents');
+      this.$views = $views;
+      this.$view = (function() {
+        var ret = {};
+        $views.each(function(i, e) {
+          var sfx = e.id.split('-').pop();
+          ret[sfx] = $views.eq(i);
+        });
+        return ret;
+      }());
     },
     routes: {
       '': 'index',
@@ -38,67 +49,68 @@ function(
       'about': 'about'
     },
     index: function() {
-      var that = this;
-      util.l('Routing index');
+      var that = this,
+         IDENT = 'index';
 
-      that.onRouteStart('index');
-      new IndexView({
-        el: '#js-view-index'
+      that.onRoute(IDENT, function() {
+        new IndexView({
+          el: that.$view[IDENT]
+        });
       });
-      that.onRouteEnd('index');
     },
     list: function(ctg) {
-      var that = this;
-      util.l('Routing list', ctg);
+      var that = this,
+         IDENT = 'list';
 
-      that.onRouteStart('list');
-      util.scroller.restore();
-      that.collectionFetch.done(function() {
-        new ListView({
-          el: '#js-view-list',
-          collection: that.collection
-        },
-        {
-          ctg: ctg
+      that.onRoute(IDENT, function() {
+        util.scroller.restore();
+        that.collectionFetch.done(function() {
+          new ListView({
+            el: that.$view[IDENT],
+            collection: that.collection
+          },
+          {
+            ctg: ctg
+          });
         });
-        that.onRouteEnd('list');
       });
     },
     detail: function(cid) {
-      var that = this;
-      util.l('Routing detail cid ->', cid);
+      var that = this,
+         IDENT = 'detail';
 
-      that.onRouteStart('detail');
-      util.scroller.store(window.scrollY);
-      that.collectionFetch.done(function() {
-        new DetailView({
-          el: '#js-view-detail',
-          collection: that.collection
-        }, {
-          cid: cid
+      that.onRoute(IDENT, function() {
+        util.scroller.store(window.scrollY);
+        that.collectionFetch.done(function() {
+          new DetailView({
+            el: that.$view[IDENT],
+            collection: that.collection
+          }, {
+            cid: cid
+          });
         });
-        that.onRouteEnd('detail');
       });
     },
     about: function() {
-      var that = this;
-      util.l('Routing about');
+      var that = this,
+         IDENT = 'about';
 
-      that.onRouteStart('about');
-      new AboutView({
-        el: '#js-view-about'
+      that.onRoute(IDENT, function() {
+        new AboutView({
+          el: that.$view[IDENT]
+        });
       });
-
-      that.onRouteEnd('about');
     },
-    onRouteStart: function(route) {
+    onRoute: function(route, routeFunc) {
+      util.l('Routing', route);
       util.loading.show();
-    },
-    onRouteEnd: function(route) {
-      util.l('Switch view to ->', route);
 
-      $('.js-view-contents').hide();
-      $('#js-view-'+route).show();
+      routeFunc();
+
+      util.l('Switch view to ->', route);
+      this.$views.addClass('is-invisible');
+      this.$view[route].removeClass('is-invisible');
+
       util.loading.hide();
     }
   });
