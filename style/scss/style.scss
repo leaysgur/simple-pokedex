@@ -32,8 +32,6 @@ a {
   @include transition(color .5s ease);
 }
 
-
-
 .texts {
   font-size: .8rem;
 }
@@ -82,6 +80,7 @@ body {
     }
   }
 }
+
 .l-view-footer {
   position: fixed;
   bottom: 0;
@@ -104,7 +103,7 @@ body {
   left: 0;
   right: 0;
   z-index: 20;
-  background-color: rgba($color3, .5);
+  background-color: rgba($color2, .75);
   display: none;
   
   &::after {
