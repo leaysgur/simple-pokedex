@@ -28,25 +28,7 @@ ul {
   @include transition(color .5s ease);
 }
 
-.anchor-btn {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  margin: #{sitePx(1)}px;
-  color: $color2;
-  background-color: $color5;
-  @include vJustify(#{sitePx(5)}px);
-  @include border-radius(#{sitePx(1 / 4)}px);
-  
-  &.m-no-margin {
-    margin: 0;
-  }
-  
-  &.m-btn-sub {
-    color: $color4;
-    background-color: $color3;
-  }
-}
+
 
 .texts {
   font-size: .8rem;
@@ -60,19 +42,12 @@ ul {
   @include box-flex(1);
 }
 
-.monster-type {
-  display: inline-block;
-  color: $color2;
-  font-size: .7rem;
-  padding: #{sitePx(1 / 4)}px;
-  width: #{sitePx(7)}px;
-  text-align: center;
-  @include border-radius(#{sitePx(1 / 2)}px);
-}
 /*+
  * Stylings
  ****************************************************/
-
+body {
+  background-color: $color2;
+}
 // Common
 .l-view-header {
   position: fixed;
@@ -141,8 +116,39 @@ ul {
   &.is-shown { display: block; }
 }
 
+.b-anchor-btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin: #{sitePx(1)}px;
+  color: $color2;
+  background-color: $color5;
+  @include vJustify(#{sitePx(5)}px);
+  @include border-radius(#{sitePx(1 / 4)}px);
+  
+  &.m-no-margin {
+    margin: 0;
+  }
+  
+  &.m-btn-sub {
+    color: $color4;
+    background-color: $color3;
+  }
+}
+
+.b-monster-type {
+  display: inline-block;
+  color: $color2;
+  font-size: .7rem;
+  padding: #{sitePx(1 / 4)}px;
+  width: #{sitePx(7)}px;
+  text-align: center;
+  @include border-radius(#{sitePx(1 / 2)}px);
+}
+
+
 // Index
-.l-category-list {
+.b-category-list {
   text-align: center;
 
   > li {
@@ -157,8 +163,8 @@ ul {
 }
 
 // List
-.view-list {
-  .monster-list {
+.l-view-list {
+  .b-monster-list {
     > li {
       a {
         position: relative;
@@ -183,9 +189,9 @@ ul {
 
 
 // Detail
-.view-detail {
-  .monster-index-wrap {
-    .monster-icon {
+.l-view-detail {
+  .b-monster-index-wrap {
+    .e-monster-icon {
       width: #{sitePx(5)}px;
       height: #{sitePx(5)}px;
       margin-right: #{sitePx(1)}px;
@@ -194,12 +200,12 @@ ul {
         @extend %monster-icon;
       }
     }
-    .monster-index {
+    .e-monster-index {
       @include vJustify(#{sitePx(5 / 2)}px);
     }
   }
 
-  .base-stats {
+  .b-base-stats {
     > li {
       position: relative;
       background-color: $color3;
@@ -225,17 +231,17 @@ ul {
     }
   }
 
-  .monster-type { margin-right: #{sitePx(1 / 4)}px; }
+  .b-monster-type { margin-right: #{sitePx(1 / 4)}px; }
 
-  .type-charts {
+  .b-type-charts {
     > li {
       margin-bottom: #{sitePx(1 / 2)}px;
 
-      .label {
+      .e-label {
         text-align: center;
         width: #{sitePx(5)}px;
 
-        &.small {
+        &.m-small {
           text-align: left;
           font-size: .9rem;
         }

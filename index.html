@@ -7,17 +7,17 @@
 <link rel="stylesheet" href="/style/css/style.css">
 </head>
 <body>
-<div class="container">
+<div class="l-container">
   <header class="l-view-header">
     <h1 id="js-view-header">Pokédex</h1>
   </header>
 
   <div class="l-loading-layer" id="js-loading-layer"></div>
   <div class="l-view-content">
-    <div id="js-view-index" class="js-view-contents view-index"></div>
-    <div id="js-view-about" class="js-view-contents view-about"></div>
-    <div id="js-view-list" class="js-view-contents view-list"></div>
-    <div id="js-view-detail" class="js-view-contents view-detail"></div>
+    <div id="js-view-index" class="js-view-contents l-view-index"></div>
+    <div id="js-view-about" class="js-view-contents l-view-about"></div>
+    <div id="js-view-list" class="js-view-contents l-view-list"></div>
+    <div id="js-view-detail" class="js-view-contents l-view-detail"></div>
   </div>
 
   <footer class="l-view-footer">
@@ -33,20 +33,18 @@
 <section>
   <h2>{{texts.2.h}}</h2>
 
-  <ul class="l-category-list">
+  <ul class="b-category-list">
     {{#each categories}}<!--
-    --><li><a href="#" data-ctg-key="{{this.key}}" class="js-ctg-btn anchor-btn">{{this.label}}</a></li><!--
+    --><li><a href="#" data-ctg-key="{{this.key}}" class="js-ctg-btn b-anchor-btn">{{this.label}}</a></li><!--
     -->{{/each}}
   </ul>
 </section>
 <section>
   <h2>{{texts.3.h}}</h2>
-  <a href="#" class="anchor-btn js-go-to m-no-margin" data-href="/list">{{titles.list}}</a>
+  <a href="#" class="b-anchor-btn js-go-to m-no-margin" data-href="/list">{{titles.list}}</a>
 </section>
 
-<a href="#" class="anchor-btn m-btn-sub js-go-to" data-href="/about">{{titles.about}}</a>
-
-<div class="monster-icon icon-id-{{id}}"></div>
+<a href="#" class="b-anchor-btn m-btn-sub js-go-to" data-href="/about">{{titles.about}}</a>
 </script>
 
 <script id="js-tmpl-about" type="text/x-handlebars-tmpl">
@@ -63,22 +61,22 @@
   <div class="texts">{{{texts.3.c}}}</div>
 </section>
 
-<a href="#" class="anchor-btn js-back-to">{{titles.index}}</a>
+<a href="#" class="b-anchor-btn js-back-to">{{titles.index}}</a>
 </script>
 
 <script id="js-tmpl-list" type="text/x-handlebars-tmpl">
-<ul class="monster-list">
+<ul class="b-monster-list">
   {{#each monsters}}
-  <li><a data-cid="{{this.cid}}" class="icon-id-{{this.id}} js-show-detail">{{this.name}}</a></li>
+  <li><a data-cid="{{this.cid}}" class="m-icon-id-{{this.id}} js-show-detail">{{this.name}}</a></li>
   {{/each}}
 </ul>
-<a href="#" class="js-go-to anchor-btn" data-href="/">{{titles.index}}</a>
+<a href="#" class="js-go-to b-anchor-btn" data-href="/">{{titles.index}}</a>
 </script>
 
 <script id="js-tmpl-detail" type="text/x-handlebars-tmpl">
-<section class="monster-index-wrap box">
-  <div class="monster-icon icon-id-{{_id}}"></div>
-  <div class="monster-index flex">
+<section class="b-monster-index-wrap box">
+  <div class="e-monster-icon m-icon-id-{{_id}}"></div>
+  <div class="e-monster-index flex">
     <h2>{{name}}</h2>
     {{words.nationalPokedex}}No.{{nationalPokedexNumber}}
   </div>
@@ -86,7 +84,7 @@
 
 <section>
   <h2>{{words.baseStats.title}}</h2>
-  <ul class="base-stats">
+  <ul class="b-base-stats">
     <li><div style="width: {{baseStatsRatio.hp}}%" data-label="{{words.baseStats.hp}}: {{baseStats.hp}}"></div></li>
     <li><div style="width: {{baseStatsRatio.attack}}%" data-label="{{words.baseStats.attack}}: {{baseStats.attack}}"></div></li>
     <li><div style="width: {{baseStatsRatio.defense}}%" data-label="{{words.baseStats.defense}}: {{baseStats.defense}}"></div></li>
@@ -99,56 +97,56 @@
 
 <section>
   <h2>{{words.type}}</h2>
-  {{#each types}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+  {{#each types}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
 </section>
 
 <section>
   <h2>{{words.typeChart}}</h2>
-  <ul class="type-charts">
+  <ul class="b-type-charts">
     {{#if typesChartStr.efx400}}
     <li class="box">
-      <div class="label">x 4</div>
+      <div class="e-label">x 4</div>
       <div class="flex">
-        {{#each typesChartStr.efx400}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+        {{#each typesChartStr.efx400}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
       </div>
     </li>
     {{/if}}
     {{#if typesChartStr.efx200}}
     <li class="box">
-      <div class="label">x 2</div>
+      <div class="e-label">x 2</div>
       <div class="flex">
-        {{#each typesChartStr.efx200}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+        {{#each typesChartStr.efx200}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
       </div>
     </li>
     {{/if}}
     {{#if typesChartStr.efx50}}
     <li class="box">
-      <div class="label small">x 1/2</div>
+      <div class="e-label m-small">x 1/2</div>
       <div class="flex">
-        {{#each typesChartStr.efx50}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+        {{#each typesChartStr.efx50}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
       </div>
     </li>
     {{/if}}
     {{#if typesChartStr.efx25}}
     <li class="box">
-      <div class="label small">x 1/4</div>
+      <div class="e-label m-small">x 1/4</div>
       <div class="flex">
-        {{#each typesChartStr.efx25}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+        {{#each typesChartStr.efx25}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
       </div>
     </li>
     {{/if}}
     {{#if typesChartStr.efx0}}
     <li class="box">
-      <div class="label">x 0</div>
+      <div class="e-label">x 0</div>
       <div class="flex">
-        {{#each typesChartStr.efx0}}<span class="monster-type type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
+        {{#each typesChartStr.efx0}}<span class="b-monster-type m-type-{{this.type}}">{{this.typeStr}}</span>{{/each}}
       </div>
     </li>
     {{/if}}
   </ul>
 </section>
 
-<section class="abilities">
+<section>
   <h2>{{words.abilities.normal}}</h2>
   {{#each abilities.normal}}
   <h3 class="js-toggle-trigger">{{this.name}}</h3>
@@ -157,7 +155,7 @@
 </section>
 
 {{#if abilities.hidden}}
-<section class="abilities">
+<section>
   <h2>{{words.abilities.hidden}}</h2>
   {{#each abilities.hidden}}
   <h3 class="js-toggle-trigger">{{this.name}}</h3>
@@ -172,8 +170,8 @@
   <div class="texts">{{words.height}}: {{heightStr}} / {{words.weight}}: {{weightStr}}</div>
 </section>
 
-<a href="#" class="js-back-to anchor-btn">{{titles.list}}</a>
-<a href="#" class="js-go-to anchor-btn" data-href="/">{{titles.index}}</a>
+<a href="#" class="js-back-to b-anchor-btn">{{titles.list}}</a>
+<a href="#" class="js-go-to b-anchor-btn" data-href="/">{{titles.index}}</a>
 </script>
 
 <script src="/script/vendor/require.js"></script>
