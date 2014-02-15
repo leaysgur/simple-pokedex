@@ -29,6 +29,16 @@ module.exports = function(grunt) {
           config: './config.rb'
         }
       }
+    },
+    esteWatch: {
+      options: {
+        dirs: ['./', './tmpl/', './style/scss/'],
+        livereload: {
+          enabled: false
+        }
+      },
+      'scss': function() { return 'compass' },
+      'html': function() { return 'jst' }
     }
 
   });
@@ -36,7 +46,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jst');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-este-watch');
 
-  grunt.registerTask('default', ['jst', 'requirejs', 'compass']);
+  grunt.registerTask('build', ['jst', 'requirejs', 'compass']);
+  grunt.registerTask('watch', ['esteWatch']);
 
 };

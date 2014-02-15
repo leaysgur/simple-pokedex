@@ -181,7 +181,7 @@ __p += '\n  <h3 class="js-toggle-trigger">' +
  }) ;
 __p += '\n</section>\n';
  } ;
-__p += '\n\n\n<section>\n  <h2>' +
+__p += '\n\n<section>\n  <h2>' +
 ((__t = ( words.misc )) == null ? '' : __t) +
 '</h2>\n  <div class="texts">' +
 ((__t = ( words.height )) == null ? '' : __t) +
