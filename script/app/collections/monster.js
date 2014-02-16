@@ -54,9 +54,9 @@ define([
       var that = this;
 
       $.when(
-        $.ajax({ url: jsonPath.base, dataType: 'json' }),
-        $.ajax({ url: jsonPath.type, dataType: 'json' }),
-        $.ajax({ url: jsonPath.lang, dataType: 'json' })
+        $.ajax({ url: jsonPath.base, dataType: 'json', cache: false }),
+        $.ajax({ url: jsonPath.type, dataType: 'json', cache: false }),
+        $.ajax({ url: jsonPath.lang, dataType: 'json', cache: false })
       ).done(function(base, type, lang) {
         util.l('Ajax done', base, type, lang);
 
