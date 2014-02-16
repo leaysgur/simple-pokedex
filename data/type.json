@@ -9,7 +9,7 @@
     "fire": {
       "0": [],
       "50": ["fire", "grass", "ice", "bug", "steel", "fairy"],
-      "200": ["water", "rock", "ground", "rock"]
+      "200": ["water", "rock", "ground"]
     },
     "water": {
       "0": [],
@@ -33,8 +33,8 @@
     },
     "fighting": {
       "0": [],
-      "50": ["bug", "dark"],
-      "200": ["flying", "psychic", "rock", "fairy"]
+      "50": ["bug", "dark", "rock"],
+      "200": ["flying", "psychic", "fairy"]
     },
     "poison": {
       "0": [],
