@@ -214,11 +214,17 @@ __p += '<section>\n  <h2>' +
 ((__t = ( texts.indexes.h )) == null ? '' : __t) +
 '</h2>\n  <ul class="b-category-list">\n    ';
  _.forEach(categories, function(category) { ;
+__p += '<!--\n    -->';
+ if (category.isDummy) { ;
+__p += '<!--\n    --><li><a href="#" class="b-anchor-btn m-btn-dummy">&nbsp;</a></li><!--\n    -->';
+ } else { ;
 __p += '<!--\n    --><li><a href="#" data-ctg-key="' +
 ((__t = ( category.key )) == null ? '' : __t) +
 '" class="js-ctg-btn b-anchor-btn">' +
 ((__t = ( category.label )) == null ? '' : __t) +
 '</a></li><!--\n    -->';
+ } ;
+__p += '<!--\n    -->';
  }) ;
 __p += '\n  </ul>\n</section>\n<section>\n  <h2>' +
 ((__t = ( texts.list.h )) == null ? '' : __t) +

@@ -139,6 +139,11 @@ body {
     color: $color4;
     background-color: $color3;
   }
+
+  &.m-btn-dummy {
+    pointer-events: none;
+    opacity: .5;
+  }
   
   &.is-active {
     opacity: .75;
@@ -176,7 +181,7 @@ body {
       display: inline-block;
       width: 20%;
       
-      a {
+      .b-anchor-btn {
         margin: #{sitePx(1 / 4)}px;
       }
     }

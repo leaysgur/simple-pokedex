@@ -6,7 +6,11 @@
   <h2><%= texts.indexes.h %></h2>
   <ul class="b-category-list">
     <% _.forEach(categories, function(category) { %><!--
+    --><% if (category.isDummy) { %><!--
+    --><li><a href="#" class="b-anchor-btn m-btn-dummy">&nbsp;</a></li><!--
+    --><% } else { %><!--
     --><li><a href="#" data-ctg-key="<%= category.key %>" class="js-ctg-btn b-anchor-btn"><%= category.label %></a></li><!--
+    --><% } %><!--
     --><% }) %>
   </ul>
 </section>
