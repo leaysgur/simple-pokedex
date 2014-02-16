@@ -43,8 +43,8 @@
     },
     "ground": {
       "0": ["electric"],
-      "50": ["poison"],
-      "200": ["water", "grass", "ice", "rock"]
+      "50": ["poison", "rock"],
+      "200": ["water", "grass", "ice"]
     },
     "flying": {
       "0": ["ground"],
