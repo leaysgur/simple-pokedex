@@ -8,44 +8,32 @@ function(
 ) {
   'use strict';
 
-  var ev = ('orientation' in window) ? {
-    start: 'touchstart',
-    move : 'touchmove',
-    end  : 'touchend'
-  } : {
-    start: 'mousedown',
-    move : 'mousemove',
-    end  : 'click'
-  };
-
   var App = {
     init: function() {
       this.Router = new AppRouter();
       Backbone.history.start();
-      
+
       this.uiInteract();
     },
     uiInteract: function() {
       var that = this;
+      if (!'orientation' in window) { return; }
 
-      $(document).on(ev.start, 'a', that.handleEvent)
-                 .on(ev.move,  'a', that.handleEvent)
-                 .on(ev.end,   'a', that.handleEvent);
+      $(document).on('touchstart', 'a', that.handleEvent)
+                 .on('touchmove',  'a', that.handleEvent)
+                 .on('touchend',   'a', that.handleEvent);
     },
     handleEvent: function(e) {
       var $target = $(e.target);
 
       switch (e.type) {
-        case ev.start:
+        case 'touchstart':
         $target.addClass('is-active');
         break;
-        
-        case ev.move:
-        break;
-        
-        case ev.end:
-        var t = setTimeout(function() { $target.removeClass('is-active'); }, 250);
-        clearTimeout(t);
+
+        case 'touchmove':
+        case 'touchend':
+        $target.removeClass('is-active');
         break;
       }
     }
