@@ -4,7 +4,8 @@ require.config({
     templates:  './tmpl/templates',
     underscore: '../vendor/underscore',
     jquery:     '../vendor/jquery',
-    backbone:   '../vendor/backbone'
+    backbone:   '../vendor/backbone',
+    marionette:   '../vendor/backbone.marionette'
   },
   shim: {
     templates: {
@@ -19,8 +20,12 @@ require.config({
     backbone: {
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
+    },
+    marionette: {
+      deps: ['underscore', 'jquery', 'backbone'],
+      exports: 'Marionette'
     }
   }
   // キャッシュOFF
-  //,urlArgs: "bust=" +  (new Date()).getTime()
+  ,urlArgs: "bust=" +  (new Date()).getTime()
 });

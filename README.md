@@ -14,3 +14,8 @@ npm install
 grunt build
 ```
 
+## TODO
+- Marionette化
+- 日本語版だけにする
+- gulpためす
+- 覚えるわざの機能
