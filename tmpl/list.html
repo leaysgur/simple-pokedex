@@ -1,6 +1,6 @@
 <ul class="b-monster-list">
   <% _.forEach(monsters, function(monster) { %>
-  <li><a data-cid="<%= monster.cid %>" class="m-icon-id-<%= monster.id %> js-show-detail"><%= monster.name %></a></li>
+  <li><a href="#detail/<%= monster.cid %>" class="m-icon-id-<%= monster.id %>"><%= monster.name %></a></li>
   <% }) %>
 </ul>
-<a href="#" class="js-go-to b-anchor-btn" data-href="/"><%= titles.index %></a>
+<a href="#" class="b-anchor-btn"><%= titles.index %></a>

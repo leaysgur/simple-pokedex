@@ -2,8 +2,8 @@
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "style/css"
-sass_dir = "style/scss"
+css_dir = "build/css"
+sass_dir = "style"
 # 実際は/img/だがそんな記載はScss側で書く
 images_dir = "/"
 output_style = ":compressed"

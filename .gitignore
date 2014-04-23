@@ -3,3 +3,4 @@ node_modules/
 css/
 build/
 _server.js
+.DS_Store

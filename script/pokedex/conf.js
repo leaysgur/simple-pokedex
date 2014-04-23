@@ -8,6 +8,8 @@ define('conf', ['jquery'], function ($) {
   var Conf = {
     lang: lang,
     storageKey: 'pokedexAll',
+    max_stat: 255,
+    max_all_stat: 780,
     jsonPath: {
       base: '/data/monster.json',
       type: '/data/type.json'
@@ -64,7 +66,11 @@ define('conf', ['jquery'], function ($) {
         ru: { key: 'ru', label: 'ル', contents: ['ル']},
         re: { key: 're', label: 'レ', contents: ['レ']},
         ro: { key: 'ro', label: 'ロ', contents: ['ロ']},
-        wa: { key: 'wa', label: 'ワ', contents: ['ワ', 'ヲ', 'ン']}
+        wa: { key: 'wa', label: 'ワ', contents: ['ワ', 'ヲ', 'ン']},
+        wi: { key: 'wi', isDummy: 1 },
+        wu: { key: 'wu', isDummy: 1 },
+        we: { key: 'we', isDummy: 1 },
+        wo: { key: 'wo', isDummy: 1 },
       },
       words: {
         type: 'タイプ',
@@ -111,6 +117,7 @@ define('conf', ['jquery'], function ($) {
       titles: {
         index: 'Simple Pokédex',
         list: 'ポケモン一覧',
+        categorisedList: '%s行のポケモン一覧',
         detail: 'vs %s',
         about: 'このサイトについて'
       },
@@ -223,6 +230,7 @@ define('conf', ['jquery'], function ($) {
       titles: {
         index: 'Simple Pokédex',
         list: 'Pokémon List',
+        categorisedList: 'Pokémon list names beginning with %s',
         detail: 'vs %s',
         about: 'About this site'
       },

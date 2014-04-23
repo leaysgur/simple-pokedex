@@ -20,9 +20,9 @@ __p += '<section>\n  <h2>' +
 ((__t = ( texts.contact.h )) == null ? '' : __t) +
 '</h2>\n  <div class="texts">' +
 ((__t = ( texts.contact.c )) == null ? '' : __t) +
-'</div>\n</section>\n\n<a href="#" class="b-anchor-btn js-back-to">' +
+'</div>\n</section>\n\n<a href="#" class="b-anchor-btn">' +
 ((__t = ( titles.index )) == null ? '' : __t) +
-'</a>';
+'</a>\n';
 
 }
 return __p
@@ -191,11 +191,11 @@ __p += '\n\n<section>\n  <h2>' +
 ((__t = ( words.weight )) == null ? '' : __t) +
 ': ' +
 ((__t = ( weightStr )) == null ? '' : __t) +
-'</div>\n</section>\n\n<a href="#" class="js-back-to b-anchor-btn">' +
+'</div>\n</section>\n\n<a class="js-back-to b-anchor-btn">' +
 ((__t = ( titles.list )) == null ? '' : __t) +
-'</a>\n<a href="#" class="js-go-to b-anchor-btn" data-href="/">' +
+'</a>\n<a href="#" class="b-anchor-btn">' +
 ((__t = ( titles.index )) == null ? '' : __t) +
-'</a>';
+'</a>\n';
 
 }
 return __p
@@ -228,11 +228,11 @@ __p += '<!--\n    -->';
  }) ;
 __p += '\n  </ul>\n</section>\n<section>\n  <h2>' +
 ((__t = ( texts.list.h )) == null ? '' : __t) +
-'</h2>\n  <a href="#" class="b-anchor-btn js-go-to m-no-margin" data-href="/list">' +
+'</h2>\n  <a class="b-anchor-btn m-no-margin" href="#list">' +
 ((__t = ( titles.list )) == null ? '' : __t) +
-'</a>\n</section>\n\n<a href="#" class="b-anchor-btn m-btn-sub js-go-to m-about-site" data-href="/about"><div class="b-monster-icon m-icon-id-0"></div>' +
+'</a>\n</section>\n\n<a class="b-anchor-btn m-btn-sub m-about-site" href="#about"><div class="b-monster-icon m-icon-id-0"></div>' +
 ((__t = ( titles.about )) == null ? '' : __t) +
-'</a>';
+'</a>\n';
 
 }
 return __p
@@ -245,17 +245,17 @@ function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<ul class="b-monster-list">\n  ';
  _.forEach(monsters, function(monster) { ;
-__p += '\n  <li><a data-cid="' +
+__p += '\n  <li><a href="#detail/' +
 ((__t = ( monster.cid )) == null ? '' : __t) +
 '" class="m-icon-id-' +
 ((__t = ( monster.id )) == null ? '' : __t) +
-' js-show-detail">' +
+'">' +
 ((__t = ( monster.name )) == null ? '' : __t) +
 '</a></li>\n  ';
  }) ;
-__p += '\n</ul>\n<a href="#" class="js-go-to b-anchor-btn" data-href="/">' +
+__p += '\n</ul>\n<a href="#" class="b-anchor-btn">' +
 ((__t = ( titles.index )) == null ? '' : __t) +
-'</a>';
+'</a>\n';
 
 }
 return __p

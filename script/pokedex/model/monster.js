@@ -1,11 +1,13 @@
 define([
   'util',
   'conf',
-  'backbone'
+  'backbone',
+  'underscore'
 ], function (
   util,
   conf,
-  Backbone
+  Backbone,
+  _
 ) {
   'use strict';
 
@@ -52,16 +54,13 @@ define([
       for (var stat in baseStats) {
         baseStatsRatio[stat] = getBaseStatsRatio(baseStats[stat], stat === 'total');
       }
-      
+
       return baseStatsRatio;
     }
   });
 
-
   return MonsterModel;
 
-
-  // Privates
   /**
    * lbs -> kg
    * @param {Number} lbs
@@ -95,7 +94,6 @@ define([
     var efx0 = _.pluck(defTypeCharts, '0');
     var efx0All = _.union(efx0[0], efx0[1]);
 
-
     // 2タイプとも効果抜群なら4倍弱点
     var efx400Unq = _.intersection(efx200[0], efx200[1]);
 
@@ -118,20 +116,19 @@ define([
       efx50 :  efx50Unq,
       efx25 :  efx25Unq,
       efx0  :   efx0Unq
-    }
+    };
   }
   /**
-   * 種族値の棒グラフのために、200を最大として割合を計算する
+   * 種族値の棒グラフのために、最大から割合を計算する
    * @param {Number} stat 種族値
    * @param {Boolean} isTotal 6つの種族値の合計の計算かどうか
    * @return {Number} 小数点第一位までの割合
    */
   function getBaseStatsRatio(stat, isTotal) {
     // 現在の最高はH255とかいうバケモノなので255、合計は780という別のバケモノ
-    var MAX_STAT = 255, MAX_ALL_STAT = 780;
+    var MAX_STAT = conf.max_stat, MAX_ALL_STAT = conf.max_all_stat;
 
     var maxStat = (isTotal) ? MAX_ALL_STAT : MAX_STAT;
     return ((stat / maxStat) * 100).toFixed(1);
   }
-
 });

@@ -1,11 +1,13 @@
-define('util', ['conf'], function (conf) {
+define([
+  'backbone',
+  'jquery'
+], function (
+  Backbone,
+  $
+) {
   'use strict';
 
-  var instance;
-  if (instance) return instance;
-
   var util = {
-    l: function(){},//console.log.bind(console),
     title: (function() {
       var $header = $('#js-view-header');
       return function(title) {
@@ -20,11 +22,6 @@ define('util', ['conf'], function (conf) {
       return l.replace(/%s/g, function() {
         return (i < args.length) ? args[i++] : '';
       });
-    },
-    goTo: function(e) {
-      e.preventDefault();
-      var dest = $(e.target).data('href');
-      Backbone.history.navigate(dest, {trigger: true});
     },
     backTo: function(e) {
       e.preventDefault();
@@ -47,18 +44,19 @@ define('util', ['conf'], function (conf) {
     scroller: (function() {
       var scrollY = 0;
       var $window = $('html,body');
+      var animateScrollTop = function (y) {
+        var t = window.setTimeout(function() {
+          $window.animate({ scrollTop: y }, 250);
+          clearTimeout(t);
+        }, 100);
+      };
       return {
         restore: function() {
-          var t = setTimeout(function() {
-            $window.animate({ scrollTop: scrollY }, 250);
-            clearTimeout(t);
-          }, 100);
+          animateScrollTop(scrollY);
         },
-        store: function(y) {
-          scrollY = y || 0;
-          var t = setTimeout(function() {
-            $window.animate({ scrollTop: 0 }, 250);
-          }, 100);
+        store: function() {
+          scrollY = window.scrollY;
+          animateScrollTop(0);
         }
       };
     }()),
@@ -74,7 +72,5 @@ define('util', ['conf'], function (conf) {
     }
   };
 
-  instance = util;
-  return instance;
-
+  return util;
 });

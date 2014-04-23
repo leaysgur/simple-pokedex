@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" sizes="120x120" href="/img/touch-icon.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/img/touch-icon.png">
 <title>Simple Pokédex</title>
-<link rel="stylesheet" href="/style/css/style.css">
+<link rel="stylesheet" href="/build/css/style.css">
 <link rel="shortcut icon" href="/img/favicon.ico">
 </head>
 <body>
@@ -18,28 +18,20 @@
     <h1 id="js-view-header">Simple Pokédex</h1>
   </header>
 
-  <div class="l-loading-layer" id="js-loading-layer"></div>
-  <div class="l-view-content">
-    <div id="js-view-index" class="js-view-contents l-view-index"></div>
-    <div id="js-view-about" class="js-view-contents l-view-about"></div>
-    <div id="js-view-list" class="js-view-contents l-view-list"></div>
-    <div id="js-view-detail" class="js-view-contents l-view-detail"></div>
-  </div>
+  <div class="l-loading-layer is-shown" id="js-loading-layer"></div>
+  <div id="js-view-content" class="l-view-content"></div>
 
   <footer class="l-view-footer">
     Simple Pokédex | &copy; 2014 <a href="https://twitter.com/leader22" target="_blank" class="anchor-txt">@leader22</a>
   </footer>
 </div>
-<script src="/script/vendor/require.js"></script>
-<script src="/script/app/require_config.js"></script>
-<script src="/script/app/main.js"></script>
-<!-- <script src="/script/build/main.js"></script> -->
+<!-- <script src="/script/vendor/require.js" data&#45;main="/script/pokedex/main"></script> -->
+<script src="/build/js/pokedex.all.min.js"></script>
 <script>
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-48792797-1']);
 _gaq.push(['_trackPageview']);
 (function() {
-return false;
   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);

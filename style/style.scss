@@ -50,6 +50,7 @@ a {
 body {
   background-color: $color2;
 }
+
 // Common
 .l-view-header {
   position: fixed;
@@ -62,15 +63,13 @@ body {
   text-align: center;
   @include vJustify(#{sitePx(4)}px);
 }
+
 .l-view-content {
   padding: #{sitePx(4)}px 0;
   z-index: 1;
 
   // このdivが各View
   > div {
-    &.is-invisible {
-      display: none;
-    }
     > section {
       @extend %content-base;
     }
@@ -193,6 +192,7 @@ body {
     @include box-pack(center);
   }
 }
+
 // List
 .l-view-list {
   .b-monster-list {
@@ -200,6 +200,8 @@ body {
       a {
         position: relative;
         display: block;
+        text-decoration: none;
+        color: inherit;
         padding-left: #{sitePx(7)}px;
         @include vJustify(#{sitePx(7)}px);
 
@@ -221,7 +223,6 @@ body {
     }
   }
 }
-
 
 // Detail
 .l-view-detail {
@@ -258,7 +259,9 @@ body {
     }
   }
 
-  .b-monster-type { margin-right: #{sitePx(1 / 4)}px; }
+  .b-monster-type {
+    margin-right: #{sitePx(1 / 4)}px;
+  }
 
   .b-type-charts {
     > li {

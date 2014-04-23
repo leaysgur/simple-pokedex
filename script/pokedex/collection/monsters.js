@@ -2,11 +2,15 @@ define([
   'util',
   'conf',
   'backbone',
-  'models/monster'
+  'jquery',
+  'underscore',
+  'model/monster'
 ], function (
   util,
   conf,
   Backbone,
+  $,
+  _,
   MonsterModel
 ) {
   'use strict';
@@ -14,12 +18,9 @@ define([
   var storageKey = conf.storageKey;
   var jsonPath = conf.jsonPath;
 
-  var MonsterCollection = Backbone.Collection.extend({
+  var MonstersCollection = Backbone.Collection.extend({
     model: MonsterModel,
     comparator: 'nationalPokedexNumber',
-    initialize: function() {
-      util.l('Collection init!');
-    },
 
     fetch: function() {
       var that = this;
@@ -54,11 +55,10 @@ define([
       var that = this;
 
       $.when(
-        $.ajax({ url: jsonPath.base, dataType: 'json', cache: false }),
-        $.ajax({ url: jsonPath.type, dataType: 'json', cache: false }),
-        $.ajax({ url: jsonPath.lang, dataType: 'json', cache: false })
+        $.ajax({ url: jsonPath.base, dataType: 'json' }),
+        $.ajax({ url: jsonPath.type, dataType: 'json' }),
+        $.ajax({ url: jsonPath.lang, dataType: 'json' })
       ).done(function(base, type, lang) {
-        util.l('Ajax done', base, type, lang);
 
         var baseData = base[0], typeData = type[0], langData = lang[0];
         var fixedData = overrideBaseData(baseData.monsters, typeData, langData);
@@ -71,14 +71,14 @@ define([
         that.reset(fixedData);
         d.resolve();
 
-      }).fail(function(jqXHR, textStatus, errorThrown) {
+      }).fail(function() {
         location.href = '/';
       });
-
     }
   });
 
-  /* Private */
+  return MonstersCollection;
+
   function overrideBaseData(baseData, typeData, langData) {
     var fixedData = _.map(baseData, function(e) {
 
@@ -107,13 +107,7 @@ define([
       return e;
     });
 
-    baseData = null;
-    typeData = null;
-    langData = null;
+    baseData = typeData = langData = null;
     return fixedData;
-  };
-
-
-  return MonsterCollection;
-
+  }
 });

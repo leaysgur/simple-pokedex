@@ -1,34 +1,41 @@
 define([
-  'util',
   'conf',
-  'templates',
-  'backbone'
+  'util',
+  'backbone',
+  'jquery',
+  'marionette',
+  'underscore'
 ], function (
-  util,
   conf,
-  JST,
-  Backbone
+  util,
+  Backbone,
+  $,
+  Marionette,
+  _
 ) {
   'use strict';
 
-  var ListView = Backbone.View.extend({
-    initialize: function() {
-      this.opt = Array.prototype.slice.call(arguments, 1)[0];
-      util.l('ListView init with option ->', this.opt);
-      this.render();
+  var ListView = Marionette.ItemView.extend({
+    template: 'list',
+    className: 'l-view-list',
+    onShow: function(){
+      if (this.options.category) {
+        util.title(conf.titles.categorisedList, this.options.firstCategoryStr);
+      } else {
+        util.title(conf.titles.list);
+      }
     },
-    template: JST['list'],
-    render: function() {
-      var that = this;
-      util.l('ListView render', that);
-
+    serializeData: function() {
       var monsters = [];
-      var ctg = this.opt.ctg || null;
-      var contents = conf.categories[ctg] && conf.categories[ctg].contents || null;
-      if (contents) { monsters = getCategorizedCollection(that.collection, contents); }
-
-      // カテゴリ絞ってないとき
-      if (!monsters.length) { monsters = that.collection; }
+      var ctg = this.options.category = this.options.category || null;
+      if (ctg) {
+        var category = conf.categories[ctg];
+        this.options.firstCategoryStr = category.label;
+        var contents = category.contents;
+        monsters = getCategorizedCollection(this.collection, contents);
+      } else {
+        monsters = this.collection;
+      }
 
       monsters = monsters.map(function(model) {
         return {
@@ -43,23 +50,11 @@ define([
         titles: conf.titles
       };
 
-
-      that.$el.html(that.template(data));
-      util.title(conf.titles.list);
-
-      return that;
-    },
-    events: {
-      'click .js-go-to': util.goTo,
-      'click .js-show-detail': 'showDetail'
-    },
-    showDetail: function(e) {
-      e.preventDefault();
-
-      var cid = $(e.target).data('cid');
-      Backbone.history.navigate('/detail/'+cid, {trigger: true});
+      return data;
     }
   });
+
+  return ListView;
 
   /**
    * @param {Array} collection MonsterCollectionに準ずる配列
@@ -80,6 +75,4 @@ define([
     monsters = _.sortBy(monsters, function(model) { return model.get('name'); });
     return monsters;
   }
-
-  return ListView;
 });
