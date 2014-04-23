@@ -117,8 +117,8 @@ define('conf', ['jquery'], function ($) {
       titles: {
         index: 'Simple Pokédex',
         list: 'ポケモン一覧',
-        categorisedList: '%s行のポケモン一覧',
-        detail: 'vs %s',
+        categorisedList: '%sから始まるポケモン一覧',
+        detail: '%sについて',
         about: 'このサイトについて'
       },
       texts: {
