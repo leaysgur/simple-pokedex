@@ -29,15 +29,6 @@ define([
       };
 
       return data;
-    },
-    events: {
-      // 'click .js-go-to': util.goTo,
-      'click .js-ctg-btn': 'doCtgSearch'
-    },
-    doCtgSearch: function(e) {
-      e.preventDefault();
-      var ctg = $(e.target).data('ctg-key');
-      Backbone.history.navigate('/list/ctg/' + ctg, {trigger: true});
     }
   });
 

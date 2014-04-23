@@ -45,7 +45,6 @@ define([
      * いわゆるトップページ
      */
     index: function() {
-      console.log('index');
       util.scroller.store();
       var indexView = new IndexView();
       App.content.show(indexView);
@@ -54,7 +53,6 @@ define([
      * このサイトについてページ
      */
     about: function() {
-      console.log('about');
       util.scroller.store();
       var aboutView = new AboutView();
       App.content.show(aboutView);
@@ -66,7 +64,6 @@ define([
      * @param {String} ctg 名前の頭文字のカテゴリ
      */
     list: function(ctg) {
-      console.log('list', ctg);
       util.scroller.restore();
       var that = this;
       that.collectionFetch.done(function() {
@@ -84,7 +81,6 @@ define([
      * @param {Number} cid モンスターのモデルのcid
      */
     detail: function(cid) {
-      console.log('detail', cid);
       util.scroller.store();
       var that = this;
       that.collectionFetch.done(function() {

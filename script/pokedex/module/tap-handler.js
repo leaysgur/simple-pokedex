@@ -27,7 +27,6 @@ function(
         className: 'is-tapped'
       }, options);
 
-      console.log('TapHandler:', this, options);
       this.initialize(options);
     },
     /**
