@@ -218,9 +218,9 @@ __p += '<!--\n    -->';
  if (category.isDummy) { ;
 __p += '<!--\n    --><li><a href="#" class="b-anchor-btn m-btn-dummy">&nbsp;</a></li><!--\n    -->';
  } else { ;
-__p += '<!--\n    --><li><a href="#" data-ctg-key="' +
+__p += '<!--\n    --><li><a href="#list/ctg/' +
 ((__t = ( category.key )) == null ? '' : __t) +
-'" class="js-ctg-btn b-anchor-btn">' +
+'" class="b-anchor-btn">' +
 ((__t = ( category.label )) == null ? '' : __t) +
 '</a></li><!--\n    -->';
  } ;
