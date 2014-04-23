@@ -1,10 +1,12 @@
 define([
+  'app',
   'conf',
   'util',
   'jquery',
   'marionette',
   'underscore'
 ], function (
+  App,
   conf,
   util,
   $,
@@ -17,7 +19,7 @@ define([
     template: 'detail',
     className: 'l-view-detail',
     onShow: function(){
-      util.title(conf.titles.detail, this.model.get('name'));
+      App.vent.trigger('title', conf.titles.detail, this.model.get('name'));
     },
     events: {
       'tap .js-back-to': util.backTo

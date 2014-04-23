@@ -1,4 +1,5 @@
 define([
+  'app',
   'conf',
   'util',
   'backbone',
@@ -6,6 +7,7 @@ define([
   'marionette',
   'underscore'
 ], function (
+  App,
   conf,
   util,
   Backbone,
@@ -20,9 +22,9 @@ define([
     className: 'l-view-list',
     onShow: function(){
       if (this.options.category) {
-        util.title(conf.titles.categorisedList, this.options.firstCategoryStr);
+        App.vent.trigger('title', conf.titles.categorisedList, this.options.firstCategoryStr);
       } else {
-        util.title(conf.titles.list);
+        App.vent.trigger('title', conf.titles.list);
       }
     },
     serializeData: function() {

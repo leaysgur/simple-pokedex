@@ -1,10 +1,12 @@
 define([
+  'app',
   'conf',
   'util',
   'jquery',
   'backbone',
   'marionette'
 ], function (
+  App,
   conf,
   util,
   $,
@@ -17,7 +19,7 @@ define([
     template: 'index',
     className: 'l-view-index',
     onShow: function(){
-      util.title(conf.titles.index);
+      App.vent.trigger('title', conf.titles.index);
     },
     serializeData: function() {
       var data = {

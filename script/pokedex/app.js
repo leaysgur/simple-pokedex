@@ -22,6 +22,7 @@ define([
   var App = new Marionette.Application();
 
   App.addRegions({
+    header: '#js-view-header',
     content: '#js-view-content'
   });
 

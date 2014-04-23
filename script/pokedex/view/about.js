@@ -1,9 +1,11 @@
 define([
+  'app',
   'conf',
   'util',
   'jquery',
   'marionette'
 ], function (
+  App,
   conf,
   util,
   $,
@@ -15,7 +17,7 @@ define([
     template: 'about',
     className: 'l-view-about',
     onShow: function(){
-      util.title(conf.titles.about);
+      App.vent.trigger('title', conf.titles.about);
     },
     events: {
       'tap #js-clear-storage': 'clearStorage'

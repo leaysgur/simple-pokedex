@@ -5,6 +5,7 @@ define([
   'collection/monsters',
   'view/about',
   'view/detail',
+  'view/header',
   'view/index',
   'view/list'
 ], function(
@@ -14,6 +15,7 @@ define([
   MonstersCollection,
   AboutView,
   DetailView,
+  HeaderView,
   IndexView,
   ListView
 ) {
@@ -26,12 +28,16 @@ define([
    */
   var Controller = Marionette.Controller.extend({
     initialize: function() {
+      // ヘッダは作って放置
+      App.header.attachView(new HeaderView());
+
       App.content.on('show', function() {
         util.loading.hide();
       });
       App.content.on('close', function() {
         util.loading.show();
       });
+
       this.collection = new MonstersCollection();
       this.collectionFetch = this.collection.fetch();
     },

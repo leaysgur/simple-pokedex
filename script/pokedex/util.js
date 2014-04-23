@@ -8,15 +8,6 @@ define([
   'use strict';
 
   var util = {
-    title: (function() {
-      var $header = $('#js-view-header');
-      return function(title) {
-        var rep = Array.prototype.slice.call(arguments, 1);
-        title = this.printf(title, rep);
-        document.title = title;
-        $header.text(title);
-      };
-    }()),
     printf: function(l) {
       var i = 1, args = arguments;
       return l.replace(/%s/g, function() {
