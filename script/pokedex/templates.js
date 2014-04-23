@@ -161,7 +161,7 @@ __p += '\n  </ul>\n</section>\n\n<section>\n  <h2>' +
 ((__t = ( words.abilities.normal )) == null ? '' : __t) +
 '</h2>\n  ';
  _.forEach(abilities.normal, function(abilitiy) { ;
-__p += '\n  <h3 class="js-toggle-trigger">' +
+__p += '\n  <h3>' +
 ((__t = ( abilitiy.name )) == null ? '' : __t) +
 '</h3>\n  <div class="texts">' +
 ((__t = ( abilitiy.desc )) == null ? '' : __t) +
@@ -173,7 +173,7 @@ __p += '\n<section>\n  <h2>' +
 ((__t = ( words.abilities.hidden )) == null ? '' : __t) +
 '</h2>\n  ';
  _.forEach(abilities.hidden, function(abilitiy) { ;
-__p += '\n  <h3 class="js-toggle-trigger">' +
+__p += '\n  <h3>' +
 ((__t = ( abilitiy.name )) == null ? '' : __t) +
 '</h3>\n  <div class="texts">' +
 ((__t = ( abilitiy.desc )) == null ? '' : __t) +
