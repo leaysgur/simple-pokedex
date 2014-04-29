@@ -31,14 +31,11 @@ define([
       // ヘッダは作って放置
       App.header.attachView(new HeaderView());
 
-      App.content.on('show', function() {
+      this.collection = new MonstersCollection();
+      this.collection.once('reset', function() {
+        // showしなくても元からDOMで見えてる
         util.loading.hide();
       });
-      App.content.on('close', function() {
-        util.loading.show();
-      });
-
-      this.collection = new MonstersCollection();
       this.collectionFetch = this.collection.fetch();
     },
     /**
