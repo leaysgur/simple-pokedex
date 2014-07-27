@@ -112,7 +112,8 @@ define('conf', ['jquery'], function ($) {
         height: '高さ',
         weight: '重さ',
         nationalPokedex: 'ぜんこく図鑑',
-        misc: 'その他'
+        misc: 'その他',
+        mega: 'メガシンカ'
       },
       titles: {
         index: 'Simple Pokédex',
@@ -225,7 +226,8 @@ define('conf', ['jquery'], function ($) {
         height: 'Height',
         weight: 'Weight',
         nationalPokedex: 'National Pokédex',
-        misc: 'Misc'
+        misc: 'Misc',
+        mega: 'Mega Evolution'
       },
       titles: {
         index: 'Simple Pokédex',

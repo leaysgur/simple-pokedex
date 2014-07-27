@@ -181,15 +181,24 @@ body {
       display: inline-block;
       width: 20%;
 
+      &.m-w100 {
+        width: 100%;
+      }
+
       .b-anchor-btn {
         margin: #{sitePx(1 / 4)}px;
       }
     }
   }
 
-  .b-anchor-btn.m-about-site {
+  .b-anchor-btn.m-mega-poke {
+    text-indent: -#{sitePx(5)/2}px;
     @include display-box;
     @include box-pack(center);
+
+    .b-monster-icon {
+      left: -#{sitePx(5)/2}px;
+    }
   }
 }
 
