@@ -118,6 +118,7 @@ define('conf', ['jquery'], function ($) {
       titles: {
         index: 'Simple Pokédex',
         list: 'ポケモン一覧',
+        megaList: 'メガシンカ一覧',
         categorisedList: '%sから始まるポケモン一覧',
         detail: '%sについて',
         about: 'このサイトについて'
@@ -232,6 +233,7 @@ define('conf', ['jquery'], function ($) {
       titles: {
         index: 'Simple Pokédex',
         list: 'Pokémon List',
+        megaList: 'Mega Evolution List',
         categorisedList: 'Pokémon list names beginning with %s',
         detail: 'vs %s',
         about: 'About this site'

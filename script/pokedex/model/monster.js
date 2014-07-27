@@ -16,8 +16,8 @@ define([
       this.addDynamicAttrs();
     },
     addDynamicAttrs: function() {
-      var isJP = (conf.lang === 'ja');
 
+      // タイプ名
       var types = this.get('type');
       types = _.map(types, function(type) {
         return {
@@ -25,22 +25,34 @@ define([
           type: type
         };
       });
-      this.set('types', types);
 
+      // 種族値の合計
       var baseStats = this.get('baseStats');
       var total = _.reduce(_.values(baseStats), function(memo, num){ return memo + num; }, 0);
       baseStats['total'] = total;
-      this.set('baseStats', baseStats);
 
-      if (isJP) {
-        this.set('weightStr', lbs2Kg(this.get('weight'))+'kg');
-        this.set('heightStr', ft2M(this.get('height'))+'m');
+      // 体長と体重の表記統一
+      var weightStr, heightStr;
+      if (conf.lang === 'ja') {
+        weightStr = lbs2Kg(this.get('weight'))+'kg';
+        heightStr = ft2M(this.get('height'))+'m';
       } else {
-        this.set('weightStr', this.get('weight')+'lbs');
-        this.set('heightStr', this.get('height')+'ft');
+        weightStr = this.get('weight')+'lbs';
+        heightStr = this.get('height')+'ft';
       }
 
+      // メガシンカポケかどうか
+      var isMega = (this.get('_key').slice(0, 5) === 'mega-');
+
+      this.set({
+        isMega: isMega,
+        types: types,
+        baseStats: baseStats,
+        weightStr: weightStr,
+        heightStr: heightStr
+      });
     },
+
     getDefTypeChartStr: function() {
       var that = this;
 
