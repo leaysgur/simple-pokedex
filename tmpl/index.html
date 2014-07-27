@@ -5,17 +5,17 @@
 <section>
   <h2><%= texts.indexes.h %></h2>
   <ul class="b-category-list">
+    <li class="m-w100"><a href="#list/ctg/mega" class="b-anchor-btn m-mega-poke">
+      <div class="b-monster-icon m-icon-id-0"></div>
+      <div><%= words.mega %></div>
+    </a></li>
     <% _.forEach(categories, function(category) { %><!--
     --><% if (category.isDummy) { %><!--
     --><li><a href="#" class="b-anchor-btn m-btn-dummy">&nbsp;</a></li><!--
     --><% } else { %><!--
     --><li><a href="#list/ctg/<%= category.key %>" class="b-anchor-btn"><%= category.label %></a></li><!--
     --><% } %><!--
-    --><% }) %><!--
-    --><li class="m-w100"><a href="#list/ctg/mega" class="b-anchor-btn m-mega-poke">
-        <div class="b-monster-icon m-icon-id-0"></div>
-        <div><%= words.mega %></div>
-      </a></li>
+    --><% }) %>
   </ul>
 </section>
 <section>

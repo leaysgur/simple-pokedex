@@ -193,6 +193,7 @@ body {
 
   .b-anchor-btn.m-mega-poke {
     text-indent: -#{sitePx(5)/2}px;
+    background-color: $color6;
     @include display-box;
     @include box-pack(center);
 
