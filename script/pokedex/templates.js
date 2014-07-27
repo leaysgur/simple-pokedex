@@ -212,7 +212,9 @@ __p += '<section>\n  <h2>' +
 ((__t = ( texts.howto.c )) == null ? '' : __t) +
 '</div>\n</section>\n<section>\n  <h2>' +
 ((__t = ( texts.indexes.h )) == null ? '' : __t) +
-'</h2>\n  <ul class="b-category-list">\n    ';
+'</h2>\n  <ul class="b-category-list">\n    <li class="m-w100"><a href="#list/ctg/mega" class="b-anchor-btn m-mega-poke">\n      <div class="b-monster-icon m-icon-id-0"></div>\n      <div>' +
+((__t = ( words.mega )) == null ? '' : __t) +
+'</div>\n    </a></li>\n    ';
  _.forEach(categories, function(category) { ;
 __p += '<!--\n    -->';
  if (category.isDummy) { ;
@@ -230,7 +232,7 @@ __p += '\n  </ul>\n</section>\n<section>\n  <h2>' +
 ((__t = ( texts.list.h )) == null ? '' : __t) +
 '</h2>\n  <a class="b-anchor-btn m-no-margin" href="#list">' +
 ((__t = ( titles.list )) == null ? '' : __t) +
-'</a>\n</section>\n\n<a class="b-anchor-btn m-btn-sub m-about-site" href="#about"><div class="b-monster-icon m-icon-id-0"></div>' +
+'</a>\n</section>\n\n<a class="b-anchor-btn m-btn-sub m-about-site" href="#about">' +
 ((__t = ( titles.about )) == null ? '' : __t) +
 '</a>\n';
 

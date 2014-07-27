@@ -5,6 +5,10 @@
 <section>
   <h2><%= texts.indexes.h %></h2>
   <ul class="b-category-list">
+    <li class="m-w100"><a href="#list/ctg/mega" class="b-anchor-btn m-mega-poke">
+      <div class="b-monster-icon m-icon-id-0"></div>
+      <div><%= words.mega %></div>
+    </a></li>
     <% _.forEach(categories, function(category) { %><!--
     --><% if (category.isDummy) { %><!--
     --><li><a href="#" class="b-anchor-btn m-btn-dummy">&nbsp;</a></li><!--
@@ -19,4 +23,4 @@
   <a class="b-anchor-btn m-no-margin" href="#list"><%= titles.list %></a>
 </section>
 
-<a class="b-anchor-btn m-btn-sub m-about-site" href="#about"><div class="b-monster-icon m-icon-id-0"></div><%= titles.about %></a>
+<a class="b-anchor-btn m-btn-sub m-about-site" href="#about"><%= titles.about %></a>

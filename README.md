@@ -14,3 +14,6 @@ git clone git@github.com:leader22/simple-pokedex.git
 npm install
 grunt build
 ```
+
+## TODO
+久しぶりに見たらあまりにコードがアレで悲しい気持ちになったので、コレ以上機能追加するならそれはもう作り直しすること

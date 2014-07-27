@@ -66,6 +66,7 @@ define([
       that.collectionFetch.done(function() {
         var listView = new ListView({
           collection: that.collection,
+          isMega: (ctg === 'mega'),
           category: ctg
         });
         App.content.show(listView);

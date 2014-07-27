@@ -21,7 +21,9 @@ define([
     template: 'list',
     className: 'l-view-list',
     onShow: function(){
-      if (this.options.category) {
+      if (this.options.isMega) {
+        App.vent.trigger('title', conf.titles.megaList);
+      } else if (this.options.category) {
         App.vent.trigger('title', conf.titles.categorisedList, this.options.firstCategoryStr);
       } else {
         App.vent.trigger('title', conf.titles.list);
@@ -29,14 +31,20 @@ define([
     },
     serializeData: function() {
       var monsters = [];
-      var ctg = this.options.category = this.options.category || null;
-      if (ctg) {
-        var category = conf.categories[ctg];
-        this.options.firstCategoryStr = category.label;
-        var contents = category.contents;
-        monsters = getCategorizedCollection(this.collection, contents);
+      var isMega = this.options.isMega;
+
+      if (isMega) {
+        monsters = getMegaCollection(this.collection);
       } else {
-        monsters = this.collection;
+        var ctg = this.options.category = this.options.category || null;
+        if (ctg) {
+          var category = conf.categories[ctg];
+          this.options.firstCategoryStr = category.label;
+          var contents = category.contents;
+          monsters = getCategorizedCollection(this.collection, contents);
+        } else {
+          monsters = this.collection;
+        }
       }
 
       monsters = monsters.map(function(model) {
@@ -68,9 +76,28 @@ define([
     // これで返ってくるのがBackbone.CollectionじゃなくてただのModelの詰まった配列・・
     monsters = collection.filter(function(model) {
       var firstLetter = model.get('name').charAt(0);
-      return _.some(contents, function(content) {
+      var isValidName = _.some(contents, function(content) {
         return content === firstLetter;
       });
+      // メガシンカは特別なカテゴリがあるので省く
+      var isMega = model.get('isMega');
+
+      return isValidName && !isMega;
+    });
+    // よって、Collection.sort() しても意味ないのでこっちでやる
+    // まあそのおかげでカテゴリ絞ってない時のリストの並びは今まで通りでいられる
+    monsters = _.sortBy(monsters, function(model) { return model.get('name'); });
+    return monsters;
+  }
+
+  /**
+   * メガシンカポケだけ取得
+   */
+  function getMegaCollection(collection) {
+    var monsters = [];
+    // これで返ってくるのがBackbone.CollectionじゃなくてただのModelの詰まった配列・・
+    monsters = collection.filter(function(model) {
+      return model.get('isMega');
     });
     // よって、Collection.sort() しても意味ないのでこっちでやる
     // まあそのおかげでカテゴリ絞ってない時のリストの並びは今まで通りでいられる

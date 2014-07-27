@@ -112,11 +112,13 @@ define('conf', ['jquery'], function ($) {
         height: '高さ',
         weight: '重さ',
         nationalPokedex: 'ぜんこく図鑑',
-        misc: 'その他'
+        misc: 'その他',
+        mega: 'メガシンカ'
       },
       titles: {
         index: 'Simple Pokédex',
         list: 'ポケモン一覧',
+        megaList: 'メガシンカ一覧',
         categorisedList: '%sから始まるポケモン一覧',
         detail: '%sについて',
         about: 'このサイトについて'
@@ -225,11 +227,13 @@ define('conf', ['jquery'], function ($) {
         height: 'Height',
         weight: 'Weight',
         nationalPokedex: 'National Pokédex',
-        misc: 'Misc'
+        misc: 'Misc',
+        mega: 'Mega Evolution'
       },
       titles: {
         index: 'Simple Pokédex',
         list: 'Pokémon List',
+        megaList: 'Mega Evolution List',
         categorisedList: 'Pokémon list names beginning with %s',
         detail: 'vs %s',
         about: 'About this site'

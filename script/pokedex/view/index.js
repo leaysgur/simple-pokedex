@@ -25,6 +25,7 @@ define([
       var data = {
         titles: conf.titles,
         texts: conf.texts.index,
+        words: conf.words,
         categories: conf.categories
       };
 
